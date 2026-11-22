@@ -1,8 +1,8 @@
 # Emergence of consciousness traits
 
-Code for the paper *Traits of Consciousness Emerge in an AI Trained Only to Predict*.
+Code for the paper *Emergence of Consciousness Traits in a SLM*.
 
-We asked whether four traits that theories of consciousness care about (integration, access, self-modelling and metacognition) can grow in a language model that was never shown them, only because they help it predict. We pre-trained a small model (about 100 million parameters) from scratch on educational web text from which a filter had removed writing about minds: awareness, selves, beliefs, emotions, psychology, and forms such as fiction, dialogue and news.
+We asked whether four traits that theories of consciousness care about (access, self-modelling, metacognition and integration) can grow in a language model that was never shown them, only because they help it predict. We pre-trained a small model (about 100 million parameters) from scratch on educational web text from which a filter had removed any text that could teach the model to imitate consciousness or its traits: awareness, selves, beliefs, emotions, psychology, and forms such as fiction, dialogue and news.
 
 We then trained it in a small simulated savanna, written as a plain-English logbook, in three stages: forecasting what happens next while a scripted animal acts, choosing the animal's actions itself, and being rewarded only for forecasting well. Five runs (seeds 0 to 4, the paper's runs 1 to 5) went through all three stages. Tests edit one line of a held-out day and check whether the model's forecasts change the way an ideal forecaster's do. The study makes no claim about experience or feelings.
 
