@@ -1,0 +1,36 @@
+version: 1
+dataset:
+  provider: huggingface
+  path: HuggingFaceFW/fineweb-edu
+  config: sample-100BT
+  smoke_config: sample-10BT
+  fallback_config: sample-350BT
+  revision: null
+  revision_required_for_freeze: true
+streaming:
+  enabled: true
+  download_full_corpus: false
+source_schedule:
+  deterministic_wide_coverage: true
+  contiguous_prefix_stopping_allowed: false
+  seed: 20260603
+  algorithm_version: wide_file_rowgroup_stride_v1
+  global_schedule_index_required: true
+  max_entries: 1000
+  rows_per_entry: 4
+  max_row_group_compressed_bytes: 536870912
+  max_row_group_total_bytes: 2147483648
+  max_footer_cache_delta_bytes: 268435456
+  require_freezable_for_corpus: true
+  weak_identity_mode: diagnostic_only
+reconstruction:
+  store_source_file_path: true
+  store_source_file_hash_or_etag: true
+  store_row_index: true
+  store_document_hashes: true
+  primary_row_identity:
+    - dataset_repo_id
+    - resolved_repo_sha
+    - parquet_artifact_identity
+    - row_group_index
+    - row_group_local_row_index

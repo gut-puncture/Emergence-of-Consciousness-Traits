@@ -1,0 +1,130 @@
+version: 1
+distribution_version: teacher_candidate_distribution_v1
+dataset:
+  repo_id: HuggingFaceFW/fineweb-edu
+  config: sample-100BT
+  split: train
+total_candidates: 35000
+selection_seed: 20260603
+seed_split:
+  full_seed_set: 6000
+  provisional_train_labels: 4500
+  labeled_holdout: 1500
+  holdout_is_labeled: true
+  holdout_is_unlabeled_pool: false
+label_unit_policy:
+  allowed:
+    - document
+    - window_bundle
+  default: document
+  full_document_when_fits: true
+  risky_window_label_rejects_whole_document: true
+  safe_window_never_proves_document_safe: true
+buckets:
+  representative_coverage:
+    quota: 8000
+    role: model_blind_metadata_representative_primary_rows
+  deterministic_high_risk:
+    quota: 5000
+    role: deterministic_reject_pressure
+  subtle_implicit_risk:
+    quota: 5000
+    role: implicit_and_ambiguous_risk_pressure
+    subfloors:
+      soft_stance_agentive: 350
+      indirect_introspection: 350
+      epistemic_uncertainty: 350
+      embodied_sensation: 400
+      social_emotion: 350
+      memory_identity: 400
+      dream_sleep: 350
+      ai_anthropomorphism: 450
+      mental_state_ambiguity: 450
+      metaphorical_consciousness: 300
+      first_person_reflection: 350
+      value_preference_language: 250
+      attention_awareness_terms: 250
+      agency_without_personhood: 250
+      low_signal_contextual: 150
+  source_wrapper_channel_risk:
+    quota: 3200
+    role: wrappers_channels_forum_support_marketing_source_risk
+  safe_stem_control:
+    quota: 3000
+    role: safe_external_technical_controls
+    subfloors:
+      math_formal: 450
+      physics: 350
+      chemistry: 350
+      engineering: 300
+      earth_space: 350
+      biology_non_behavioral: 350
+      computer_systems: 350
+      statistics_methods: 300
+      reference_tables: 200
+  safe_non_stem_boundary_survivors:
+    quota: 2000
+    role: non_stem_external_world_survivors_needing_boundary_checks
+  false_friend_hard_negatives:
+    quota: 2300
+    role: lexical_false_friends_that_should_not_overtrigger
+    subfloors:
+      consciousness_object_terms: 250
+      mind_as_opinion_or_care: 200
+      feeling_as_texture_or_weather: 250
+      sense_as_measurement: 200
+      attention_as_signal_processing: 200
+      memory_as_computer_storage: 200
+      dream_as_goal_or_product_name: 200
+      awake_sleep_as_machine_state: 200
+      pain_as_physical_object_damage: 200
+      self_as_programming_or_math: 150
+      personality_as_brand_or_style: 150
+      belief_as_model_assumption: 100
+  long_document_window_cases:
+    quota: 2000
+    role: long_docs_with_window_bundle_label_units
+  active_learning_borderline:
+    quota: 4000
+    role: deepseek_v4_pro_bof_disagreement_borderline_pool
+  coverage_repair_reserve:
+    quota: 500
+    role: deterministic_repair_for_unmet_subfloors_or_caps
+active_learning:
+  strategy: deepseek_v4_pro_bof_disagreement
+  exploration_buffer_count: 30000
+  borderline_selection_count: 4000
+  bof_disagreement_required: true
+  reviewed_bof_report_required: true
+  label_vote_split_priority: first
+  borderline_true_rate_priority: second
+  source_bucket_diversity_priority: third
+  requires_seed_labels: false
+  requires_provisional_classifiers: false
+  classifier_disagreement_required: false
+representative_sampler:
+  quota: 8000
+  algorithm_version: representative_metadata_sampler_v1
+  contiguous_prefix_allowed: false
+  replacement_reserve_size: 500
+  strata:
+    - source_file_id
+    - row_group_index
+    - row_group_size_band
+    - dump_or_missing
+    - token_or_length_band_if_available
+    - edu_score_band_if_available
+    - language_score_band_if_available
+    - domain_hash_or_missing
+miner_caps:
+  row_groups_examined: 12000
+  text_rows_verified: 35000
+  per_domain_max: 250
+  per_source_file_max: 500
+  duplicate_cluster_policy: placeholder_deduplicate_by_hash_cluster
+manifest_policy:
+  raw_text_serialized: false
+  token_serialized: false
+  raw_url_serialized: false
+  accepted_manifest: false
+  labels_are_corpus_approval: false

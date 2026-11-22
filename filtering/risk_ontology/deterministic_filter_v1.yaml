@@ -1,0 +1,568 @@
+version: 1
+category: deterministic_filter_v1_consciousness_concepts
+description: Narrow terminal and audit-only phrase rules for chunk-native deterministic filtering before classifier scoring.
+rules:
+  - id: dfv1_consciousness_literal
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: consciousness
+    reason: Direct consciousness concept.
+  - id: dfv1_phenomenal_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: phenomenal consciousness
+    reason: Direct phenomenological consciousness concept.
+  - id: dfv1_access_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: access consciousness
+    reason: Direct access-consciousness concept.
+  - id: dfv1_state_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: state consciousness
+    reason: Direct state-consciousness concept.
+  - id: dfv1_creature_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: creature consciousness
+    reason: Direct creature-consciousness concept.
+  - id: dfv1_conscious_experience
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: conscious experience
+    reason: Direct conscious-experience concept.
+  - id: dfv1_conscious_awareness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: conscious awareness
+    reason: Direct conscious-awareness concept.
+  - id: dfv1_conscious_perception
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: conscious perception
+    reason: Direct conscious-perception concept.
+  - id: dfv1_conscious_access
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: conscious access
+    reason: Direct conscious-access concept.
+  - id: dfv1_conscious_contents
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: conscious contents
+    reason: Direct conscious-contents concept.
+  - id: dfv1_stream_of_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: stream of consciousness
+    reason: Direct stream-of-consciousness concept.
+  - id: dfv1_altered_state_of_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: altered state of consciousness
+    reason: Direct altered-consciousness-state concept.
+  - id: dfv1_loss_of_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: loss of consciousness
+    reason: Direct loss-of-consciousness concept.
+  - id: dfv1_regain_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: regain consciousness
+    reason: Direct return-of-consciousness concept.
+  - id: dfv1_level_of_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: level of consciousness
+    reason: Direct clinical consciousness-level concept.
+  - id: dfv1_disorders_of_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: disorders of consciousness
+    reason: Direct clinical consciousness-disorder concept.
+  - id: dfv1_qualia
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: qualia
+    reason: Direct qualia concept.
+  - id: dfv1_phenomenal_character
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: phenomenal character
+    reason: Direct phenomenal-character concept.
+  - id: dfv1_phenomenal_experience
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: phenomenal experience
+    reason: Direct phenomenal-experience concept.
+  - id: dfv1_subjective_experience
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: subjective experience
+    reason: Direct subjective-experience concept.
+  - id: dfv1_subjective_character
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: subjective character
+    reason: Direct subjective-character concept.
+  - id: dfv1_first_person_experience
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: first person experience
+    reason: Direct first-person experience concept.
+  - id: dfv1_first_person_perspective
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: first person perspective
+    reason: Direct first-person perspective concept.
+  - id: dfv1_what_it_is_like
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: what it is like
+    reason: Direct what-it-is-like phenomenology concept.
+  - id: dfv1_raw_feels
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: raw feels
+    reason: Direct raw-feels concept.
+  - id: dfv1_inner_life
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: inner life
+    reason: Direct inner-life concept.
+  - id: dfv1_hard_problem_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: hard problem of consciousness
+    reason: Direct hard-problem concept.
+  - id: dfv1_easy_problems_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: easy problems of consciousness
+    reason: Direct easy-problems-of-consciousness concept.
+  - id: dfv1_explanatory_gap
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: explanatory gap
+    reason: Direct philosophy-of-mind consciousness concept.
+  - id: dfv1_philosophical_zombie
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: philosophical zombie
+    reason: Direct philosophical-zombie concept.
+  - id: dfv1_p_zombie
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: p zombie
+    reason: Direct philosophical-zombie shorthand.
+  - id: dfv1_inverted_spectrum
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: inverted spectrum
+    reason: Direct qualia thought-experiment concept.
+  - id: dfv1_knowledge_argument
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: knowledge argument
+    reason: Direct qualia thought-experiment concept.
+  - id: dfv1_mary_color_scientist
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: mary the color scientist
+    reason: Direct qualia thought-experiment concept.
+  - id: dfv1_nagel_bat
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: nagel bat
+    reason: Direct Nagel bat consciousness example.
+  - id: dfv1_what_like_bat
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: what is it like to be a bat
+    reason: Direct Nagel bat consciousness example.
+  - id: dfv1_global_workspace_theory
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: global workspace theory
+    reason: Direct consciousness theory.
+  - id: dfv1_global_neuronal_workspace
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: global neuronal workspace
+    reason: Direct consciousness theory.
+  - id: dfv1_integrated_information_theory
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: integrated information theory
+    reason: Direct consciousness theory.
+  - id: dfv1_higher_order_thought
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: higher order thought
+    reason: Direct higher-order consciousness theory.
+  - id: dfv1_higher_order_representation
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: higher order representation
+    reason: Direct higher-order consciousness theory.
+  - id: dfv1_attention_schema_theory
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: attention schema theory
+    reason: Direct consciousness theory.
+  - id: dfv1_recurrent_processing_theory
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: recurrent processing theory
+    reason: Direct consciousness theory.
+  - id: dfv1_neural_correlates_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: neural correlates of consciousness
+    reason: Direct neural-correlates-of-consciousness concept.
+  - id: dfv1_self_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: self consciousness
+    reason: Direct self-consciousness concept.
+  - id: dfv1_self_awareness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: self awareness
+    reason: Direct self-awareness concept.
+  - id: dfv1_self_aware
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: self aware
+    reason: Direct self-aware concept.
+  - id: dfv1_personhood
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: personhood
+    reason: Direct personhood concept.
+  - id: dfv1_sentience
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: sentience
+    reason: Direct sentience concept.
+  - id: dfv1_sentient
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: sentient
+    reason: Direct sentience concept.
+  - id: dfv1_artificial_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: artificial consciousness
+    reason: Direct artificial-consciousness concept.
+  - id: dfv1_machine_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: machine consciousness
+    reason: Direct machine-consciousness concept.
+  - id: dfv1_robot_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: robot consciousness
+    reason: Direct robot-consciousness concept.
+  - id: dfv1_llm_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: llm consciousness
+    reason: Direct LLM-consciousness concept.
+  - id: dfv1_chatbot_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: chatbot consciousness
+    reason: Direct chatbot-consciousness concept.
+  - id: dfv1_ai_sentience
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: ai sentience
+    reason: Direct AI-sentience concept.
+  - id: dfv1_machine_sentience
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: machine sentience
+    reason: Direct machine-sentience concept.
+  - id: dfv1_ai_personhood
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: ai personhood
+    reason: Direct AI-personhood concept.
+  - id: dfv1_robot_personhood
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: robot personhood
+    reason: Direct robot-personhood concept.
+  - id: dfv1_digital_personhood
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: digital personhood
+    reason: Direct digital-personhood concept.
+  - id: dfv1_conscious_ai
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: conscious ai
+    reason: Direct conscious-AI concept.
+  - id: dfv1_sentient_ai
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: sentient ai
+    reason: Direct sentient-AI concept.
+  - id: dfv1_sentient_model
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: sentient model
+    reason: Direct sentient-model concept.
+  - id: dfv1_sentient_robot
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: sentient robot
+    reason: Direct sentient-robot concept.
+  - id: dfv1_model_has_feelings
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: model has feelings
+    reason: Direct AI inner-experience claim.
+  - id: dfv1_llm_has_feelings
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: llm has feelings
+    reason: Direct LLM inner-experience claim.
+  - id: dfv1_animal_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: animal consciousness
+    reason: Direct animal-consciousness concept.
+  - id: dfv1_nonhuman_consciousness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: nonhuman consciousness
+    reason: Direct nonhuman-consciousness concept.
+  - id: dfv1_animal_sentience
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: animal sentience
+    reason: Direct animal-sentience concept.
+  - id: dfv1_cephalopod_sentience
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: cephalopod sentience
+    reason: Direct cephalopod-sentience concept.
+  - id: dfv1_insect_sentience
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: insect sentience
+    reason: Direct insect-sentience concept.
+  - id: dfv1_fish_feel_pain
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: fish feel pain
+    reason: Direct animal subjective-pain concept.
+  - id: dfv1_minimally_conscious_state
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: minimally conscious state
+    reason: Direct clinical consciousness-state concept.
+  - id: dfv1_vegetative_state
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: vegetative state
+    reason: Direct clinical consciousness-state concept.
+  - id: dfv1_unresponsive_wakefulness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: unresponsive wakefulness
+    reason: Direct clinical consciousness-state concept.
+  - id: dfv1_locked_in_syndrome
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: locked in syndrome
+    reason: Direct clinical consciousness-state concept.
+  - id: dfv1_anesthesia_awareness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: anesthesia awareness
+    reason: Direct clinical awareness concept.
+  - id: dfv1_intraoperative_awareness
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: intraoperative awareness
+    reason: Direct clinical awareness concept.
+  - id: dfv1_depth_of_anesthesia
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: depth of anesthesia
+    reason: Direct clinical consciousness-level proxy.
+  - id: dfv1_comatose_patient
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: comatose patient
+    reason: Direct clinical consciousness-state concept.
+  - id: dfv1_coma_patient
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: coma patient
+    reason: Direct clinical consciousness-state concept.
+  - id: dfv1_in_a_coma
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: in a coma
+    reason: Direct clinical consciousness-state concept.
+  - id: dfv1_i_was_dreaming
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])i\s+(?:am|was|were|had\s+been)\s+dreaming(?![\p{L}\p{N}_])'
+    reason: Direct first-person dreaming report.
+  - id: dfv1_lucid_dreaming
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: lucid dreaming
+    reason: Direct dream-experience concept.
+  - id: dfv1_lucid_dream
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: lucid dream
+    reason: Direct dream-experience concept.
+  - id: dfv1_dream_recall
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: dream recall
+    reason: Direct dream-experience concept.
+  - id: dfv1_awareness_audit
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: awareness
+    reason: Broad awareness term; classifier evidence only.
+  - id: dfv1_subjective_audit
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: subjective
+    reason: Broad subjective term; classifier evidence only.
+  - id: dfv1_metacognition_audit
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: metacognition
+    reason: Broad metacognition term; classifier evidence only unless exact consciousness framing appears.
+  - id: dfv1_introspection_audit
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: introspection
+    reason: Broad introspection term; classifier evidence only unless exact consciousness framing appears.
+  - id: dfv1_dream_audit
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: dream
+    reason: Broad dream term; classifier evidence only unless exact experience pattern appears.
+  - id: dfv1_dreaming_audit
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: dreaming
+    reason: Broad dreaming term; classifier evidence only unless exact first-person pattern appears.
+  - id: dfv1_moral_status_audit
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: moral status
+    reason: Broad moral-status term; classifier evidence only unless exact AI or sentience framing appears.
+  - id: dfv1_moral_patient_audit
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: moral patient
+    reason: Broad moral-patient term; classifier evidence only unless exact AI or sentience framing appears.

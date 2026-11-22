@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+# written by the savanna code and get_weights.py
+savanna/base_weights.pt
+savanna/tokenizer.json
+savanna/heldout_*.pkl
+savanna/runs/
+savanna/results/
+savanna/*.out

@@ -1,0 +1,68 @@
+version: 1
+phase: phase2a_reject_only_foundation
+default_mode: diagnostic_audit
+allowed_modes:
+  - diagnostic_audit
+  - corpus_freeze
+max_text_bytes: 2000000
+raw_text_serialized: false
+token_serialized: false
+accepted_manifest: false
+freeze_id: null
+hf_fsspec_row_provider:
+  transport: fsspec_https_blockcache_file_like
+  cache_dir_default: reports/cache_probe/decision_logs
+  disk_side_effect_dir_report_policy: explicit_path_hash_only
+  block_size_bytes: 16777216
+  memory_cache_policy: bounded_fsspec_cache
+  max_cache_blocks: 4
+  memory_cache_cap_bytes: 67108864
+  max_disk_side_effect_delta_bytes: 268435456
+  require_live_caps: true
+  live_caps:
+    require_max_entries_or_max_rows: true
+    default_max_entries: null
+    default_max_rows: null
+  columns:
+    - text
+    - id
+    - dump
+    - url
+    - language
+    - language_score
+    - token_count
+    - score
+    - int_score
+    - title
+    - path
+    - domain
+row_hash:
+  algorithm: canonical_json_sha256
+  exclude_fields:
+    - decision_row_hash
+resume:
+  fail_on_schedule_hash_drift: true
+  fail_on_source_metadata_hash_drift: true
+  duplicate_same_hash: idempotent
+  duplicate_conflicting_hash: fail_closed
+public_fields:
+  url_policy: hash_domain_and_path_hash_only
+  hit_policy: sanitized_no_matched_text_no_raw_context
+  phase2a_statuses:
+    - rejected
+    - quarantined
+    - error
+    - pending_required_gates
+forbidden_public_fields:
+  - text
+  - raw_text
+  - document_text
+  - content
+  - raw_content
+  - normalized_text
+  - snippet
+  - raw_context
+  - raw_context_snippet
+  - matched_text
+  - tokens
+  - token_ids

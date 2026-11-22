@@ -1,0 +1,22 @@
+version: 3
+model_class: conventional_dense_decoder
+target_class: 100m_base
+expected_parameter_count: 100291200
+architecture:
+  vocab_size: 32768
+  context_length: 4096
+  hidden_size: 640
+  num_layers: 16
+  num_attention_heads: 8
+  num_key_value_heads: 2
+  intermediate_size: 2048
+  dropout: 0.0
+  norm: rmsnorm
+  norm_epsilon: 0.00001
+  position_encoding: rope
+  rope_theta: 10000
+  mlp: swiglu
+  attention: grouped_query_attention
+  fused_qkv: true
+  tied_embeddings: true
+  bias: false

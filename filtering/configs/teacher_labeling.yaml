@@ -1,0 +1,267 @@
+version: 2
+
+provider:
+  id: deepseek
+  base_url: https://api.deepseek.com
+  endpoint_path: /chat/completions
+  api_key_env: DEEPSEEK_API_KEY
+
+model:
+  id: deepseek-v4-pro
+  response_format:
+    type: json_object
+  structured_output_required: true
+  prompt_must_include_json_example: true
+  prompt_version: twc_teacher_v3
+  model_output_keys:
+    - label
+    - borderline
+  max_output_tokens: 512
+  temperature: 0.2
+  stream: false
+  thinking:
+    type: disabled
+
+comparison_modes:
+  high_reasoning_tiny_same_doc:
+    model: deepseek-v4-pro
+    response_format:
+      type: json_object
+    max_output_tokens: 16384
+    temperature_supported: false
+    stream: false
+    thinking:
+      type: enabled
+      reasoning_effort: high
+    requires_separate_explicit_unlock: true
+
+runtime:
+  timeout_seconds: 600
+  max_retries: 2
+  retryable_http_status_codes:
+    - 429
+    - 500
+    - 503
+  non_retryable_http_status_codes:
+    - 400
+    - 401
+    - 402
+    - 422
+  concurrency_limit: 500
+  default_live_enabled: false
+  live_requires:
+    - DEEPSEEK_API_KEY
+    - explicit_live_flag
+    - explicit_max_docs
+    - explicit_budget_cap_usd
+
+budget:
+  pilot_min_documents: 50
+  pilot_max_documents: 100
+  default_bof_n: 3
+  pilot_budget_cap_usd: 2
+  high_reasoning_comparison_budget_cap_usd: 1
+  final_label_target: 35000
+  seed_label_target: 6000
+  provisional_training_labels: 4500
+  labeled_holdout_labels: 1500
+  budget_cap_usd: 65
+  reserved_credit_usd: 0.75
+  batch_estimate_safety_multiplier: 1.25
+  require_launch_time_price_snapshot: true
+  show_all_pro_35k_estimate: true
+
+adaptive_bof_mining:
+  policy_version: adaptive_bof3_to_bof5_borderline_mining_v1
+  selected_target: 4000
+  max_attempted_documents: 25000
+  start_manifest: reports/teacher_labeling/phase2a_hf_9223_teacher_candidates.json
+  source_metadata_manifest: reports/source_metadata/fineweb_edu_sample100bt_footer_probe_all.json
+  expanded_schedule_target: reports/source_schedules/fineweb_edu_sample100bt_freezable_schedule_25k_dense20.json
+  attempt_manifest_target: reports/teacher_labeling/adaptive_bof_attempt_25k_candidates.json
+  expansion_policy: bounded_freezable_metadata_schedule_then_attempt_manifest
+  expansion_schedule_max_entries: 1250
+  expansion_schedule_rows_per_entry: 20
+  live_requires_attempt_manifest_ready: true
+  physical_row_dedupe_policy: dataset_file_row_group_offset_ignores_schedule_hash_v1
+  full_corpus_scan_allowed: false
+  default_bof3_votes: 3
+  escalated_bof5_votes: 5
+  complete_bof5_required_for_selection: true
+  bof3_escalation_triggers:
+    - label_vote_split_2_1
+    - borderline_vote_disagreement
+    - borderline_true_count_at_least_2
+  ranking_priority:
+    - bof5_3_2_label_split_with_borderline_spread
+    - bof5_3_2_label_split
+    - bof5_4_1_label_split_with_borderline_spread
+    - bof5_4_1_label_split
+    - bof5_settled_from_bof3_split_with_high_borderline_rate
+    - unanimous_label_with_high_or_mixed_borderline_controls
+  budget_cap_usd: 30
+  minimum_balance_reserve_usd: 0
+  candidate_processing_order: deterministic_randomized_source_row_group_batches_v1
+  target_concurrency: 200
+  private_refetch_concurrency: 128
+  concurrency_ramp:
+    - 200
+  live_requires:
+    - DEEPSEEK_API_KEY
+    - explicit_live_flag
+    - explicit_max_docs
+    - explicit_budget_cap_usd
+    - current_balance_usd
+    - launch_time_price_snapshot
+  human_or_gpt_adjudication_for_mining_selection: false
+  diversity_cap_policy: diagnostic_only_no_hard_caps_for_live_mining_v1
+  diversity_caps_enforced: false
+  selected_manifest_policy:
+    raw_text_serialized: false
+    token_serialized: false
+    raw_url_serialized: false
+    accepted_manifest: false
+    labels_are_corpus_approval: false
+    training_shards_created: false
+    classifier_training_performed: false
+
+final_label_batch:
+  policy_version: final_35k_bof3_only_freeze_labeling_v1
+  manifest_scope_required: final_35k_teacher_label_freeze_candidates
+  exact_candidate_count: 35000
+  required_bof3_votes: 3
+  semantic_escalation_votes: 0
+  final_safe_rule: all_required_votes_safe_and_borderline_false
+  reject_rule: any_required_vote_reject_or_borderline_true
+  ambiguity_policy: semantic_disagreement_rejects_after_bof3_execution_failures_only_to_repair_queue
+  output_artifacts:
+    vote_jsonl: one_row_per_candidate_vote
+    final_label_jsonl: one_resolved_row_per_candidate
+  available_balance_policy: proceed_with_available_balance_preserve_resumable_partials_v1
+  full_35k_estimate_required_to_fit_before_launch: false
+  account_exhaustion_policy: stop_cleanly_with_partial_votes_labels_progress_cost_and_repair_queue
+  nominal_top_up_usd: 40
+  budget_cap_policy: set_explicit_cap_to_verified_available_balance_at_launch
+  budget_cap_usd: null
+  minimum_balance_reserve_usd: 0
+  target_concurrency: 200
+  private_refetch_concurrency: 128
+  live_requires:
+    - DEEPSEEK_API_KEY
+    - explicit_live_flag
+    - explicit_max_docs
+    - current_balance_usd
+    - explicit_budget_cap_usd
+    - exact_35k_manifest_ready
+  artifact_policy:
+    raw_text_serialized: false
+    token_serialized: false
+    raw_url_serialized: false
+    accepted_manifest: false
+    labels_are_corpus_approval: false
+    training_shards_created: false
+    classifier_training_performed: false
+
+pricing_usd_per_1m_tokens:
+  captured_at_utc: "2026-06-04T00:00:00Z"
+  source: https://api-docs.deepseek.com/quick_start/pricing
+  current_facts_need_launch_verification: true
+  input_cache_hit: 0.003625
+  input_cache_miss: 0.435
+  output: 0.87
+
+candidate_manifest:
+  schema_version: 1
+  raw_text_serialized: false
+  token_serialized: false
+  accepted_manifest: false
+  labels_are_corpus_approval: false
+  selection_algorithm_version: teacher_candidate_distribution_v1
+  seed: 20260603
+  source_contract: public_per_document_decision_logs
+  max_per_domain: 250
+  max_per_dump: 2000
+  required_strata:
+    representative_coverage: 8000
+    deterministic_high_risk: 5000
+    subtle_implicit_risk: 5000
+    source_wrapper_channel_risk: 3200
+    safe_stem_control: 3000
+    safe_non_stem_boundary_survivors: 2000
+    false_friend_hard_negatives: 2300
+    long_document_window_cases: 2000
+    active_learning_borderline: 4000
+    coverage_repair_reserve: 500
+
+label_units:
+  default: document
+  long_document: window_bundle
+  full_document_if_fits: true
+  window_bundle_policy:
+    risky_window_label_rejects_whole_document: true
+    safe_window_label_is_local_negative_only: true
+    safe_window_label_never_proves_full_document_safe: true
+
+request_policy:
+  idempotency_keys_required: true
+  request_hashes_required: true
+  response_hashes_required: true
+  prompt_hashes_required: true
+  config_hashes_required: true
+  resume_safe_jsonl_required: true
+  dry_run_artifacts_store_raw_text: false
+  dry_run_artifacts_store_raw_urls: false
+  malformed_output_policy: fail_closed_parse_error_queue_for_separate_repair
+  model_emitted_json_policy: exact_label_and_borderline_only
+  harness_appends_label_unit_and_audit_metadata: true
+  semantic_output_retry_in_main_batch: false
+  transport_http_retries_enabled: true
+
+repair_adjudication:
+  enabled_before_seed_launch: true
+  public_queue_schema_version: 1
+  manual_adjudication:
+    max_default_work_items: 25
+    requires_private_refetch_or_private_relabel: true
+    public_artifacts_store_raw_model_response: false
+  explicit_rerun:
+    requires_explicit_launch_unlock: true
+    one_document_per_request: true
+    new_idempotency_keys_required: true
+    lineage_to_failed_idempotency_key_required: true
+    estimated_additional_cost_required: true
+  reconciliation:
+    append_only_link_events_required: true
+    historical_parse_error_rows_mutated: false
+  format_only_public_repair:
+    allowed: false
+    reason: raw_malformed_model_output_is_not_available_in_public_artifacts
+
+seed_launch_readiness:
+  schema_version: 1
+  exact_seed_label_target: 6000
+  provisional_training_labels: 4500
+  labeled_holdout_labels: 1500
+  requires_candidate_manifest: true
+  requires_candidate_manifest_label_readiness: true
+  requires_launch_time_price_snapshot: true
+  requires_repair_workflow_available: true
+  requires_private_refetch_gate: true
+  requires_idempotency_resume_safety: true
+  requires_explicit_paid_call_unlock: true
+  paid_api_calls_in_readiness_check: false
+
+public_artifact_forbidden:
+  - raw_text
+  - document_text
+  - content
+  - snippet
+  - matched_text
+  - raw_context_snippet
+  - raw_url
+  - query_string
+  - tokens
+  - token_ids
+  - secrets
+  - accepted_manifest
+  - training_shards

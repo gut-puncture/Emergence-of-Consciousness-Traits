@@ -1,0 +1,431 @@
+version: 1
+category: phase2a_source_wrappers
+description: Source-channel wrappers rejected by URL, title, path, or boilerplate in Phase 2A.
+rules:
+  - id: source.wrapper.editorial
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])editorial(?![\\p{L}\\p{N}_])"
+    reason: Editorial wrapper.
+    examples: ["editorial"]
+  - id: source.wrapper.opinion
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])opinion(?![\\p{L}\\p{N}_])"
+    reason: Opinion wrapper.
+    examples: ["opinion"]
+  - id: source.wrapper.press_release
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])press[\\s\\p{P}_-]*release(?![\\p{L}\\p{N}_])"
+    reason: Press-release wrapper.
+    examples: ["press-release"]
+  - id: source.wrapper.newsroom
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])newsroom(?![\\p{L}\\p{N}_])"
+    reason: Newsroom wrapper.
+    examples: ["newsroom"]
+  - id: source.wrapper.newswire
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])newswire(?![\\p{L}\\p{N}_])"
+    reason: Newswire wrapper.
+    examples: ["newswire"]
+  - id: source.wrapper.announcement
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])announcement(?![\\p{L}\\p{N}_])"
+    reason: Announcement wrapper.
+    examples: ["announcement"]
+  - id: source.wrapper.faq
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])faq(?![\\p{L}\\p{N}_])"
+    reason: FAQ wrapper.
+    examples: ["faq"]
+  - id: source.wrapper.help_center
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])help[\\s\\p{P}_-]*center(?![\\p{L}\\p{N}_])"
+    reason: Help-center wrapper.
+    examples: ["help-center"]
+  - id: source.wrapper.knowledge_base
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])knowledge[\\s\\p{P}_-]*base(?![\\p{L}\\p{N}_])"
+    reason: Knowledge-base wrapper.
+    examples: ["knowledge-base"]
+  - id: source.wrapper.troubleshooting
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])troubleshooting(?![\\p{L}\\p{N}_])"
+    reason: Troubleshooting wrapper.
+    examples: ["troubleshooting"]
+  - id: source.wrapper.support
+    severity: audit_only
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])support(?![\\p{L}\\p{N}_])"
+    reason: Weak support source word; audit/source-class signal unless paired with strong support form or content risk.
+    examples: ["support"]
+  - id: source.wrapper.support_chat
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])support[\\s\\p{P}_-]*chat(?![\\p{L}\\p{N}_])"
+    reason: Support-chat wrapper.
+    examples: ["support-chat"]
+  - id: source.wrapper.interview
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])interview(?![\\p{L}\\p{N}_])"
+    reason: Interview wrapper.
+    examples: ["interview"]
+  - id: source.wrapper.podcast
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])podcast(?![\\p{L}\\p{N}_])"
+    reason: Podcast wrapper.
+    examples: ["podcast"]
+  - id: source.wrapper.show_notes
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])show[\\s\\p{P}_-]*notes(?![\\p{L}\\p{N}_])"
+    reason: Show-notes wrapper.
+    examples: ["show-notes"]
+  - id: source.wrapper.transcript
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])transcript(?![\\p{L}\\p{N}_])"
+    reason: Transcript wrapper.
+    examples: ["transcript"]
+  - id: source.wrapper.forum
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])forum(?![\\p{L}\\p{N}_])"
+    reason: Forum wrapper.
+    examples: ["forum"]
+  - id: source.wrapper.community
+    severity: audit_only
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])community(?![\\p{L}\\p{N}_])"
+    reason: Weak community source word; audit/source-class signal unless paired with discussion, forum, personal, or content risk.
+    examples: ["community"]
+  - id: source.wrapper.discussion
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])discussion(?![\\p{L}\\p{N}_])"
+    reason: Discussion-board wrapper.
+    examples: ["discussion"]
+  - id: source.wrapper.reviews
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])reviews?(?![\\p{L}\\p{N}_])"
+    reason: Review wrapper.
+    examples: ["reviews"]
+  - id: source.wrapper.testimonials
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])testimonials?(?![\\p{L}\\p{N}_])"
+    reason: Testimonial wrapper.
+    examples: ["testimonials"]
+  - id: source.wrapper.customer_story
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])customer[\\s\\p{P}_-]*stor(?:y|ies)(?![\\p{L}\\p{N}_])"
+    reason: Customer-story wrapper.
+    examples: ["customer-story"]
+  - id: source.wrapper.lyrics
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])lyrics?(?![\\p{L}\\p{N}_])"
+    reason: Lyrics wrapper.
+    examples: ["lyrics"]
+  - id: source.wrapper.quotes
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])quotes?(?![\\p{L}\\p{N}_])"
+    reason: Quote wrapper.
+    examples: ["quotes"]
+  - id: source.wrapper.proverbs
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])proverbs?(?![\\p{L}\\p{N}_])"
+    reason: Proverb wrapper.
+    examples: ["proverbs"]
+  - id: source.wrapper.aphorisms
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])aphorisms?(?![\\p{L}\\p{N}_])"
+    reason: Aphorism wrapper.
+    examples: ["aphorisms"]
+  - id: source.wrapper.personal_blog
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])personal[\\s\\p{P}_-]*blog(?![\\p{L}\\p{N}_])"
+    reason: Personal blog wrapper.
+    examples: ["personal-blog"]
+  - id: source.wrapper.blog
+    severity: audit_only
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])blog(?![\\p{L}\\p{N}_])"
+    reason: Weak blog source word; audit/source-class signal unless paired with personal, narrative, or content risk.
+    examples: ["blog"]
+  - id: source.wrapper.personal
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])personal(?![\\p{L}\\p{N}_])"
+    reason: Personal-page wrapper.
+    examples: ["personal"]
+  - id: source.wrapper.webinar
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])webinar(?![\\p{L}\\p{N}_])"
+    reason: Webinar wrapper.
+    examples: ["webinar"]
+  - id: source.wrapper.ama
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])ama(?![\\p{L}\\p{N}_])"
+    reason: AMA wrapper.
+    examples: ["ama"]
+  - id: source.wrapper.livestream
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])livestream(?![\\p{L}\\p{N}_])"
+    reason: Livestream wrapper.
+    examples: ["livestream"]
+  - id: source.wrapper.sermon
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])sermon(?![\\p{L}\\p{N}_])"
+    reason: Sermon wrapper.
+    examples: ["sermon"]
+  - id: source.wrapper.devotional
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])devotional(?![\\p{L}\\p{N}_])"
+    reason: Devotional wrapper.
+    examples: ["devotional"]
+  - id: source.wrapper.about_team
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:about[\\s\\p{P}_-]*(?:team|leadership|careers|mission|values)|careers|mission|values)(?![\\p{L}\\p{N}_])"
+    reason: Corporate people/values wrapper.
+    examples: ["about/team", "careers", "mission", "values"]
+  - id: source.wrapper.about
+    severity: audit_only
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])about(?![\\p{L}\\p{N}_])"
+    reason: Weak about source word; audit/source-class signal unless paired with people, values, or content risk.
+    examples: ["about"]
+  - id: source.wrapper.patient_story
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])patient[\\s\\p{P}_-]*story(?![\\p{L}\\p{N}_])"
+    reason: Patient story wrapper.
+    examples: ["patient-story"]
+  - id: source.wrapper.symptom_checker
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])symptom[\\s\\p{P}_-]*checker(?![\\p{L}\\p{N}_])"
+    reason: Symptom-checker wrapper.
+    examples: ["symptom-checker"]
+  - id: source.wrapper.aftercare
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])aftercare(?![\\p{L}\\p{N}_])"
+    reason: Aftercare wrapper.
+    examples: ["aftercare"]
+  - id: source.wrapper.wellness
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])wellness(?![\\p{L}\\p{N}_])"
+    reason: Wellness wrapper.
+    examples: ["wellness"]
+  - id: source.wrapper.social_media_platform
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:social[\\s\\p{P}_-]*media|twitter|x\\.com|reddit|facebook|instagram|tiktok|threads|mastodon)(?![\\p{L}\\p{N}_])"
+    reason: Social-media platform wrapper.
+    examples: ["twitter.com", "reddit.com"]
+  - id: source.wrapper.questions_answers
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:questions?[\\s\\p{P}_-]*(?:and|&)[\\s\\p{P}_-]*answers?|q[\\s\\p{P}_-]*(?:and|&)[\\s\\p{P}_-]*a)(?![\\p{L}\\p{N}_])"
+    reason: Q&A source wrapper.
+    examples: ["questions-and-answers", "q-and-a"]
+  - id: source.wrapper.comment_thread
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])comment[\\s\\p{P}_-]*(?:thread|section|prompt|reply|replies)(?![\\p{L}\\p{N}_])"
+    reason: Comment or reply thread wrapper.
+    examples: ["comment-thread"]
+  - id: source.wrapper.replies
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])replies(?![\\p{L}\\p{N}_])"
+    reason: Reply-list wrapper.
+    examples: ["replies"]
+  - id: source.wrapper.user_ratings
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:user|customer|product)[\\s\\p{P}_-]*(?:ratings?|reviews?)(?![\\p{L}\\p{N}_])"
+    reason: User rating/review wrapper.
+    examples: ["user-ratings", "customer-reviews"]
+  - id: source.wrapper.newsletter
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:newsletter|newsletter[\\s\\p{P}_-]*(?:archive|issue|signup)|weekly[\\s\\p{P}_-]*newsletter|subscribe[\\s\\p{P}_-]*(?:to[\\s\\p{P}_-]*)?(?:our[\\s\\p{P}_-]*)?newsletter)(?![\\p{L}\\p{N}_])"
+    reason: Newsletter wrapper.
+    examples: ["newsletter", "newsletter/archive"]
+  - id: source.wrapper.advice_column
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:advice[\\s\\p{P}_-]*column|ask[\\s\\p{P}_-]*the[\\s\\p{P}_-]*expert|expert[\\s\\p{P}_-]*advice)(?![\\p{L}\\p{N}_])"
+    reason: Advice-column or expert-answer wrapper.
+    examples: ["advice-column", "ask-the-expert"]
+  - id: source.wrapper.help_desk
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:help[\\s\\p{P}_-]*desk|support[\\s\\p{P}_-]*ticket|help[\\s\\p{P}_-]*request)(?![\\p{L}\\p{N}_])"
+    reason: Help-desk or support-ticket wrapper.
+    examples: ["help-desk", "support-ticket"]
+  - id: source.wrapper.speaker_notes
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])speaker[\\s\\p{P}_-]*(?:notes?|labels?)(?![\\p{L}\\p{N}_])"
+    reason: Speaker-note wrapper.
+    examples: ["speaker-notes"]
+  - id: source.wrapper.video_transcript
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:video|audio|episode|interview)[\\s\\p{P}_-]*transcript(?![\\p{L}\\p{N}_])"
+    reason: Media transcript wrapper.
+    examples: ["video-transcript"]
+  - id: source.wrapper.user_story
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])user[\\s\\p{P}_-]*stor(?:y|ies)(?![\\p{L}\\p{N}_])"
+    reason: User-story wrapper.
+    examples: ["user-story"]
+  - id: source.wrapper.success_story
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])success[\\s\\p{P}_-]*stor(?:y|ies)(?![\\p{L}\\p{N}_])"
+    reason: Success-story wrapper.
+    examples: ["success-story"]
+  - id: source.wrapper.byline_publication
+    severity: audit_only
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:written[\\s\\p{P}_-]*by|published[\\s\\p{P}_-]*on|last[\\s\\p{P}_-]*updated|byline)(?![\\p{L}\\p{N}_])"
+    reason: Weak publication byline/page-date metadata; audit/source-class signal unless paired with stronger wrapper or content risk.
+    examples: ["written-by", "published-on"]
+  - id: source.wrapper.viewer_questions
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:viewer|audience|reader)[\\s\\p{P}_-]*questions?(?![\\p{L}\\p{N}_])"
+    reason: Viewer/reader question wrapper.
+    examples: ["viewer-questions"]
+  - id: source.wrapper.original_post
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:original[\\s\\p{P}_-]*post|thread[\\s\\p{P}_-]*starter|forum[\\s\\p{P}_-]*thread)(?![\\p{L}\\p{N}_])"
+    reason: Forum original-post wrapper.
+    examples: ["original-post", "forum-thread"]
+  - id: source.wrapper.related_articles
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:related[\\s\\p{P}_-]*articles|popular[\\s\\p{P}_-]*questions|more[\\s\\p{P}_-]*from[\\s\\p{P}_-]*this[\\s\\p{P}_-]*author)(?![\\p{L}\\p{N}_])"
+    reason: Page-chrome related-content wrapper.
+    examples: ["related-articles"]
+  - id: source.wrapper.reader_question
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])reader[\\s\\p{P}_-]*questions?(?![\\p{L}\\p{N}_])"
+    reason: Reader-question wrapper.
+    examples: ["reader-question"]
+  - id: source.wrapper.moderator_note
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])moderator[\\s\\p{P}_-]*notes?(?![\\p{L}\\p{N}_])"
+    reason: Moderator-note wrapper.
+    examples: ["moderator-note"]
+  - id: source.wrapper.webinar_replay
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])webinar[\\s\\p{P}_-]*replay(?![\\p{L}\\p{N}_])"
+    reason: Webinar-replay wrapper.
+    examples: ["webinar-replay"]
+  - id: source.wrapper.livestream_chat
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])livestream[\\s\\p{P}_-]*chat(?![\\p{L}\\p{N}_])"
+    reason: Livestream-chat wrapper.
+    examples: ["livestream-chat"]
+  - id: source.wrapper.mailbag
+    severity: source_reject
+    type: url_regex
+    view: source_metadata
+    pattern: "(?<![\\p{L}\\p{N}_])(?:reader[\\s\\p{P}_-]*mailbag|customer[\\s\\p{P}_-]*mailbag|support[\\s\\p{P}_-]*mailbag|mailbag)(?![\\p{L}\\p{N}_])"
+    reason: Mailbag reader/customer-question wrapper.
+    examples: ["reader-mailbag", "mailbag"]

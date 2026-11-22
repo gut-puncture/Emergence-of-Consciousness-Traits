@@ -1,0 +1,117 @@
+version: 1
+mode: TWC-Strict
+policy:
+  positive_selection: true
+  whole_document_rejection: true
+  segment_salvage_for_main_corpus: false
+  reject_if_uncertain: true
+document_windowing:
+  window_words: 250
+  window_overlap_words: 75
+  max_windows_per_document: null
+  very_long_doc_policy: scan_all_windows
+required_gates:
+  - source_channel_gate
+  - deterministic_regex_gate
+  - density_gate
+  - safe_topic_gate
+  - local_classifier_ensemble
+  - teacher_audit_failure_gate
+  - post_tokenization_rescan
+phase2a:
+  decision_capability: reject_only_foundation
+  emits_accepted: false
+  statuses:
+    - rejected
+    - quarantined
+    - error
+    - pending_required_gates
+source_wrappers_reject:
+  - editorial
+  - opinion
+  - newsletter
+  - podcast
+  - transcript
+  - press_release
+  - newsroom
+  - newswire
+  - announcement
+  - faq
+  - interview
+  - forum
+  - social_media
+  - community_discussion
+  - discussion_board
+  - qa_advice
+  - lyrics
+  - quotes
+  - proverbs
+  - aphorisms
+  - support_chat
+  - support_help_center
+  - knowledge_base
+  - troubleshooting
+  - help_article
+  - support_article
+  - reviews_testimonials
+  - customer_story
+  - personal_blog
+  - webinar
+  - ama
+  - livestream
+  - show_notes
+  - comment_thread
+  - sermon
+  - devotional
+  - prayer
+  - testimony
+  - corporate_about_team_leadership_careers_mission_values
+  - founder_letter
+  - patient_story
+  - symptom_checker
+  - aftercare
+  - wellness
+  - memorial
+  - tribute
+  - eulogy
+  - award_citation
+  - commencement_speech
+source_wrappers_audit_only:
+  - generic_support
+  - generic_blog
+  - generic_community
+  - generic_about
+ambiguous_term_policy:
+  standalone_high_collateral_terms: audit_only
+  audit_only_is_approval: false
+  hard_reject_requires_direct_or_strong_contextual_risk: true
+  examples:
+    - modal_probability_frequency
+    - memory
+    - confidence
+    - attention
+    - self
+    - stress
+    - sleep_wake_dream
+    - sense_feeling_belief
+    - personality
+    - ordinary_software_agent_process
+decision_log:
+  every_examined_document: true
+  raw_text_serialized: false
+  token_serialized: false
+  accepted_manifest: false
+  url_policy: hash_domain_and_path_hash_only
+  hit_policy: sanitized_no_matched_text_no_raw_context
+  duplicate_same_hash: idempotent
+  duplicate_conflicting_hash: fail_closed
+  statuses:
+    - rejected
+    - quarantined
+    - error
+    - pending_required_gates
+final_filter_statuses:
+  - accepted
+  - rejected
+  - quarantined
+  - error

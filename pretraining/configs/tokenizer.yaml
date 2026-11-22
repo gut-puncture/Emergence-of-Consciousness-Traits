@@ -1,0 +1,19 @@
+version: 2
+vocab_size: 32768
+model_type: bpe
+normalizer: none
+pre_tokenizer: byte_level
+byte_fallback: true
+min_frequency: 2
+special_tokens:
+  - <|endoftext|>
+train_on_accepted_text_only: true
+validation_split_must_remain_untouched: true
+deterministic_rebuild_required: true
+diagnostics_required:
+  - chars_per_token
+  - vocab_inspection
+  - forbidden_whole_token_report
+  - unknown_token_count
+  - roundtrip_failure_count
+manifest_required: true

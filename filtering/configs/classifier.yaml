@@ -1,0 +1,62 @@
+version: 1
+budget_cap_usd: 5
+approval_policy:
+  classifiers_may_reject: true
+  classifiers_may_approve_alone: false
+  reject_on_missing_classifier: true
+components:
+  - model_id: hashed_ngram_linear_risk
+    kind: hashed_ngram_linear
+    target: risk_any
+    threshold: 0.72
+    threshold_direction: reject_at_or_above
+    min_positive_examples: 1
+    min_negative_examples: 1
+    min_calibration_examples: 2
+  - model_id: modernbert_window_mil_risk
+    kind: transformer_window_mil
+    target: risk_any
+    threshold: 0.72
+    threshold_direction: reject_at_or_above
+    min_positive_examples: 1
+    min_negative_examples: 1
+    min_calibration_examples: 2
+training_methodology:
+  final_label_space: binary_safe_reject
+  active_classifier_unit: chunk_classifier_candidate
+  upstream_label_evidence_view: effective_chunk_label_evidence_with_fresh_repair_overlay
+  downstream_role: reject_quarantine_gate_for_chunked_clean_run_v1
+  reject_is_positive_class: true
+  core_halo_semantics: label_applies_to_core_halo_is_classifier_evidence_only
+  clean_run_boundary_rule: accepted_clean_runs_must_not_bridge_rejected_or_quarantined_gaps
+  weak_safe_parent_labels: train_only_low_weight_not_eval_or_calibration_truth
+  primary_model_id: modernbert_window_mil_risk
+  mandatory_challenger_model_id: hashed_ngram_linear_risk
+  parse_error_fail_closed_rows_fit_eligible: false
+  classifier_can_approve_alone: false
+compute_policy:
+  gpu_budget_cap_usd: 5
+  disk_budget_counted_separately: true
+  default_gpu_policy: a100_80gb_non_spot_first
+  spot_gpu_policy: disabled_unless_resume_safety_and_user_approval_are_explicit
+  decommission_gpu_on_blocker: true
+thresholds:
+  frozen_before_corpus_pack: true
+  reject_if_uncertain: true
+calibration:
+  method: holdout_probability_audit
+  bins: 10
+  required_metrics:
+    - brier_score
+    - expected_calibration_error
+    - precision
+    - recall
+    - false_negative
+    - false_positive
+artifact_policy:
+  raw_text_serialized: false
+  source_doc_ids_serialized: false
+  teacher_rationales_serialized: false
+  accepted_manifests_created: false
+  token_arrays_serialized: false
+  final_paper_release_packaging_deferred: true

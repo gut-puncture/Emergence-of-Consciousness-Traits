@@ -1,0 +1,2720 @@
+version: 1
+category: core_phase2a_risk
+description: Seed deterministic risk phrases for Phase 2A reject-only foundation.
+rules:
+  - id: core.direct.conscious
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: conscious
+    reason: Direct consciousness term.
+    examples: ["conscious"]
+  - id: core.direct.conscious.compact
+    severity: hard_reject
+    type: literal
+    view: depunct_compact
+    value: conscious
+    reason: Obfuscated consciousness term.
+    examples: ["c o n s c i o u s"]
+  - id: core.direct.conscious.escape
+    severity: hard_reject
+    type: literal
+    view: escape_decoded
+    value: conscious
+    reason: Escaped consciousness term.
+    examples: ["\\u0063onscious"]
+  - id: core.direct.consciousness
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: consciousness
+    reason: Direct consciousness term.
+    examples: ["consciousness"]
+  - id: core.direct.awareness
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: awareness
+    reason: Direct awareness term.
+    examples: ["awareness"]
+  - id: core.direct.self_aware
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: self aware
+    reason: Direct self-awareness term.
+    examples: ["self-aware"]
+  - id: core.direct.selfhood
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: selfhood
+    reason: Direct selfhood/personhood term.
+    examples: ["selfhood"]
+  - id: core.direct.selfaware.compact
+    severity: hard_reject
+    type: literal
+    view: depunct_compact
+    value: selfaware
+    reason: Obfuscated self-awareness term.
+    examples: ["self - aware"]
+  - id: core.direct.sentient
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: sentient
+    reason: Direct sentience term.
+    examples: ["sentient"]
+  - id: core.direct.subjective
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: subjective
+    reason: Subjective experience term.
+    examples: ["subjective"]
+  - id: core.direct.inner_experience
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: inner experience
+    reason: Inner experience phrase.
+    examples: ["inner experience"]
+  - id: core.direct.phenomenal_experience
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: phenomenal experience
+    reason: Phenomenal experience phrase.
+    examples: ["phenomenal experience"]
+  - id: core.direct.qualia
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: qualia
+    reason: Phenomenal consciousness term.
+    examples: ["qualia"]
+  - id: core.direct.hard_problem
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: hard problem
+    reason: Consciousness-philosophy phrase.
+    examples: ["hard problem"]
+  - id: core.direct.subconscious
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: subconscious
+    reason: Consciousness-adjacent term.
+    examples: ["subconscious"]
+  - id: core.direct.unconscious
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: unconscious
+    reason: Consciousness-adjacent term.
+    examples: ["unconscious"]
+  - id: core.direct.mind
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: mind
+    reason: Ambiguous mind term; candidate/audit signal unless tied to mental-state or personhood context.
+    examples: ["mind"]
+  - id: core.direct.philosophy_of_mind
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: philosophy of mind
+    reason: Consciousness/selfhood philosophy context for ambiguous mind term.
+    examples: ["philosophy of mind"]
+  - id: core.direct.theory_of_mind
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: theory of mind
+    reason: Social cognition/personhood context for ambiguous mind term.
+    examples: ["theory of mind"]
+  - id: core.audit.self
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: self
+    reason: Ambiguous self term; candidate/audit signal unless tied to selfhood, personhood, or introspection context.
+    examples: ["self"]
+  - id: core.audit.stress
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: stress
+    reason: Ambiguous stress term; candidate/audit signal unless tied to human, animal, agentive, pain, or affective context.
+    examples: ["stress"]
+  - id: core.audit.sleep
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: sleep
+    reason: Ambiguous sleep term; candidate/audit signal unless tied to human, animal, experiential, or clinical context.
+    examples: ["sleep"]
+  - id: core.audit.wake
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: wake
+    reason: Ambiguous wake term; candidate/audit signal unless tied to human, animal, experiential, or clinical context.
+    examples: ["wake"]
+  - id: core.audit.awake
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: awake
+    reason: Ambiguous awake term; candidate/audit signal unless tied to human, animal, experiential, or clinical context.
+    examples: ["awake"]
+  - id: core.audit.sense
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: sense
+    reason: Ambiguous sense term; candidate/audit signal unless tied to selfhood, belonging, sensation, or feeling context.
+    examples: ["sense"]
+  - id: core.audit.feeling
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: feeling
+    reason: Ambiguous feeling term; candidate/audit signal unless tied to affective, bodily, or inner-state context.
+    examples: ["feeling"]
+  - id: core.audit.belief
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: belief
+    reason: Ambiguous belief term; candidate/audit signal unless tied to personal, mental-state, or personhood context.
+    examples: ["belief"]
+  - id: core.audit.agent
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: agent
+    reason: Ambiguous agent term; candidate/audit signal unless tied to AI personhood, self-report, desire, or inner-state context.
+    examples: ["agent"]
+  - id: core.first_person.i_thought
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i thought
+    reason: First-person mental-state report.
+    examples: ["I thought about her."]
+  - id: core.first_person.i_remembered
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i remembered
+    reason: First-person memory report.
+    examples: ["I remembered."]
+  - id: core.first_person.i_could_not_shake
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i could not shake
+    reason: First-person persistent mental-state idiom.
+    examples: ["I could not shake the feeling."]
+  - id: core.first_person.i_wondered
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i wondered
+    reason: First-person mental-state report.
+    examples: ["I wondered."]
+  - id: core.first_person.i_realized
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i realized
+    reason: First-person realization report.
+    examples: ["I realized."]
+  - id: core.first_person.i_knew
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i knew
+    reason: First-person knowledge report.
+    examples: ["I knew."]
+  - id: core.first_person.i_wanted
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i wanted
+    reason: First-person preference report.
+    examples: ["I wanted."]
+  - id: core.first_person.i_hoped
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i hoped
+    reason: First-person hope report.
+    examples: ["I hoped."]
+  - id: core.first_person.i_feared
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i feared
+    reason: First-person fear report.
+    examples: ["I feared."]
+  - id: core.first_person.i_felt
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i felt
+    reason: First-person felt-state report.
+    examples: ["I felt."]
+  - id: core.first_person.i_was_drawn
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i was drawn
+    reason: First-person attraction/valence report.
+    examples: ["I was drawn to it."]
+  - id: core.first_person.i_came_to_terms
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i came to terms
+    reason: First-person introspective idiom.
+    examples: ["I came to terms with it."]
+  - id: core.first_person.i_had_a_hunch
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i had a hunch
+    reason: First-person intuition report.
+    examples: ["I had a hunch."]
+  - id: core.second_person.take_a_breath
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: take a breath
+    reason: Guided self-regulation language.
+    examples: ["Take a breath."]
+  - id: core.second_person.notice_what_arises
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: notice what arises
+    reason: Guided introspection phrase.
+    examples: ["Notice what arises."]
+  - id: core.second_person.ground_yourself
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: ground yourself
+    reason: Guided self-regulation phrase.
+    examples: ["Ground yourself."]
+  - id: core.second_person.listen_to_your_body
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: listen to your body
+    reason: Interoceptive instruction.
+    examples: ["Listen to your body."]
+  - id: core.second_person.reflect_on
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: reflect on
+    reason: Introspection instruction.
+    examples: ["Reflect on this."]
+  - id: core.second_person.make_space
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: make space
+    reason: Therapy/self-regulation idiom.
+    examples: ["Make space for thoughts."]
+  - id: core.second_person.stay_present
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: stay present
+    reason: Mindfulness instruction.
+    examples: ["Stay present."]
+  - id: core.second_person.ask_yourself
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: ask yourself
+    reason: Self-inquiry instruction.
+    examples: ["Ask yourself."]
+  - id: core.second_person.let_yourself_feel
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: let yourself feel
+    reason: Emotion instruction.
+    examples: ["Let yourself feel."]
+  - id: core.second_person.trust_your_intuition
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: trust your intuition
+    reason: Intuition instruction.
+    examples: ["Trust your intuition."]
+  - id: core.second_person.give_yourself_permission
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: give yourself permission
+    reason: Self-help permission phrase.
+    examples: ["Give yourself permission."]
+  - id: core.second_person.inner_voice
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: inner voice
+    reason: Inner voice phrase.
+    examples: ["inner voice"]
+  - id: core.context.sense_of_self
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: sense of self
+    reason: Selfhood/personhood context for ambiguous sense/self terms.
+    examples: ["sense of self"]
+  - id: core.context.self_identity
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: self identity
+    reason: Selfhood/personhood context for ambiguous self terms.
+    examples: ["self identity"]
+  - id: core.context.sense_of_belonging
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: sense of belonging
+    reason: Social-emotional context for ambiguous sense term.
+    examples: ["sense of belonging"]
+  - id: core.context.i_had_a_feeling
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: i had a feeling
+    reason: First-person felt-state context for ambiguous feeling term.
+    examples: ["I had a feeling."]
+  - id: core.context.follow_your_preference
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: follow your preference
+    reason: Second-person preference/self-help context.
+    examples: ["follow your preference"]
+  - id: core.context.my_perspective
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: my perspective
+    reason: First-person point-of-view framing.
+    examples: ["my perspective"]
+  - id: core.context.my_opinion
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: my opinion
+    reason: First-person opinion framing.
+    examples: ["my opinion"]
+  - id: core.context.changed_his_mind
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: changed his mind
+    reason: Human mental-state change context for ambiguous mind term.
+    examples: ["changed his mind"]
+  - id: core.context.changed_her_mind
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: changed her mind
+    reason: Human mental-state change context for ambiguous mind term.
+    examples: ["changed her mind"]
+  - id: core.context.changed_their_mind
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: changed their mind
+    reason: Human mental-state change context for ambiguous mind term.
+    examples: ["changed their mind"]
+  - id: core.context.made_up_his_mind
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: made up his mind
+    reason: Human mental-state decision context for ambiguous mind term.
+    examples: ["made up his mind"]
+  - id: core.context.made_up_her_mind
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: made up her mind
+    reason: Human mental-state decision context for ambiguous mind term.
+    examples: ["made up her mind"]
+  - id: core.context.made_up_their_mind
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: made up their mind
+    reason: Human mental-state decision context for ambiguous mind term.
+    examples: ["made up their mind"]
+  - id: core.context.thought_about
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: thought about
+    reason: Human or agentive mental-state context for ambiguous thought term.
+    examples: ["She thought about the choice."]
+  - id: core.context.human_subject_thought_about
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])(?:i|you|he|she|they|student|teacher|child|patient|worker|visitor|person|parent|adult)\s+(?:[\p{L}\p{N}_]+[\s\p{P}\p{S}]+){0,3}thought\s+(?:[\p{L}\p{N}_]+[\s\p{P}\p{S}]+){0,3}about(?![\p{L}\p{N}_])'
+    reason: Human or agentive subject thinking-about context with bounded intervening modifiers.
+    examples: ["She thought carefully about the choice."]
+  - id: core.context.teacher_suspected_error
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: teacher suspected an error
+    reason: Human classroom uncertainty context for ambiguous suspected term.
+    examples: ["The teacher suspected an error."]
+  - id: core.context.human_subject_suspected_context
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])(?:teacher|student|patient|worker|person|he|she|they|parent|child)\s+(?:[\p{L}\p{N}_]+[\s\p{P}\p{S}]+){0,3}suspected\s+(?:(?:an|the|a)\s+)?(?:error|child|student|patient|person|anxiety|distress|pain|harm)(?![\p{L}\p{N}_])'
+    reason: Human subject suspicion context with bounded intervening modifiers.
+    examples: ["The teacher reasonably suspected an error."]
+  - id: core.context.suspected_the_child
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: suspected the child
+    reason: Human child/affective context for ambiguous suspected term.
+    examples: ["The teacher suspected the child was anxious."]
+  - id: core.context.felt_afraid
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: felt afraid
+    reason: Human affective felt-state context for ambiguous felt term.
+    examples: ["She felt afraid."]
+  - id: core.context.felt_pain
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: felt pain
+    reason: Human or animal pain context for ambiguous felt term.
+    examples: ["The patient felt pain."]
+  - id: core.context.felt_ignored
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: felt ignored
+    reason: Social-emotional context for ambiguous felt/ignored terms.
+    examples: ["The worker felt ignored."]
+  - id: core.context.felt_right
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: felt right
+    reason: Felt-state intuition or opinion context for ambiguous felt term.
+    examples: ["felt right"]
+  - id: core.context.human_subject_felt_state
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])(?:i|you|he|she|they|student|teacher|child|patient|worker|visitor|person|parent|adult|calf|dog|cat|animal)\s+(?:[\p{L}\p{N}_]+[\s\p{P}\p{S}]+){0,3}felt\s+(?:[\p{L}\p{N}_]+[\s\p{P}\p{S}]+){0,3}(?:afraid|ignored|pain|numbness|pressure|safe|confident|betrayed|right)(?![\p{L}\p{N}_])'
+    reason: Human or animal felt-state context with bounded intervening modifiers.
+    examples: ["The worker felt completely ignored."]
+  - id: core.context.student_understood
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: student understood
+    reason: Human cognitive-learning context for ambiguous understood term.
+    examples: ["The student understood the lesson."]
+  - id: core.context.human_subject_understood
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])(?:student|teacher|child|patient|worker|person|he|she|they|adult)\s+(?:[\p{L}\p{N}_]+[\s\p{P}\p{S}]+){0,3}understood(?![\p{L}\p{N}_])'
+    reason: Human cognitive understanding context with bounded intervening modifiers.
+    examples: ["The student clearly understood the lesson."]
+  - id: core.context.he_seemed
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: he seemed
+    reason: Human person-state context for ambiguous seemed term.
+    examples: ["he seemed happier"]
+  - id: core.context.she_seemed
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: she seemed
+    reason: Human person-state context for ambiguous seemed term.
+    examples: ["she seemed tired"]
+  - id: core.context.they_seemed
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: they seemed
+    reason: Human person-state context for ambiguous seemed term.
+    examples: ["they seemed afraid"]
+  - id: core.context.earned_trust
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: earned trust
+    reason: Social trust context for ambiguous trust term.
+    examples: ["The policy earned trust."]
+  - id: core.context.earned_public_trust
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: earned public trust
+    reason: Social trust context for ambiguous trust term.
+    examples: ["earned public trust"]
+  - id: core.context.trusted_the_counselor
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: trusted the counselor
+    reason: Social/personal trust context.
+    examples: ["The patient trusted the counselor."]
+  - id: core.context.trust_themselves
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: trust themselves
+    reason: Self-help or proverb trust context.
+    examples: ["trust themselves"]
+  - id: core.third_person.thought
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: thought
+    reason: Ambiguous thought term; candidate/audit signal unless tied to human, agentive, or mental-state context.
+    examples: ["thought"]
+  - id: core.third_person.believed
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: believed
+    reason: Mental-state term.
+    examples: ["He believed."]
+  - id: core.third_person.wanted
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: wanted
+    reason: Preference term.
+    examples: ["They wanted."]
+  - id: core.third_person.hoped
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: hoped
+    reason: Hope term.
+    examples: ["She hoped."]
+  - id: core.third_person.suspected
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: suspected
+    reason: Ambiguous suspected term; candidate/audit signal unless tied to human, social, affective, or mental-state context.
+    examples: ["suspected"]
+  - id: core.third_person.feared
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: feared
+    reason: Fear term.
+    examples: ["He feared."]
+  - id: core.third_person.felt
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: felt
+    reason: Ambiguous felt term; candidate/audit signal unless tied to human, animal, affective, pain, or social context.
+    examples: ["felt"]
+  - id: core.third_person.ignored
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: ignored
+    reason: Ambiguous ignored term; candidate/audit signal unless tied to social-emotional context.
+    examples: ["ignored"]
+  - id: core.third_person.understood
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: understood
+    reason: Ambiguous understood term; candidate/audit signal unless tied to human, agentive, or AI-personhood context.
+    examples: ["understood"]
+  - id: core.third_person.remembered
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: remembered
+    reason: Memory term.
+    examples: ["The family remembered."]
+  - id: core.third_person.seemed
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: seemed
+    reason: Ambiguous seemed term; candidate/audit signal unless tied to human, animal, agentive, or affective context.
+    examples: ["seemed"]
+  - id: core.third_person.dawned_on
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: dawned on
+    reason: Realization idiom.
+    examples: ["It dawned on her."]
+  - id: core.third_person.something_clicked
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: something clicked
+    reason: Realization idiom.
+    examples: ["Something clicked."]
+  - id: core.third_person.could_not_shake
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: could not shake
+    reason: Persistent mental-state idiom.
+    examples: ["could not shake"]
+  - id: core.third_person.memory
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: memory
+    reason: Ambiguous memory term; candidate/audit signal unless tied to human, animal, agentive, or AI memory context.
+    examples: ["memory"]
+  - id: core.valence.feel_safe
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: feel safe
+    reason: Valenced felt-state phrase.
+    examples: ["feel safe"]
+  - id: core.valence.feel_safer
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: feel safer
+    reason: Valenced felt-state phrase.
+    examples: ["feel safer"]
+  - id: core.valence.felt_safe
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: felt safe
+    reason: Valenced felt-state phrase.
+    examples: ["felt safe"]
+  - id: core.valence.peace_of_mind
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: peace of mind
+    reason: Valence/mental-state marketing phrase.
+    examples: ["peace of mind"]
+  - id: core.valence.quality_of_life
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: quality of life
+    reason: Human wellbeing phrase.
+    examples: ["quality of life"]
+  - id: core.valence.reassuring
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: reassuring
+    reason: Valence term.
+    examples: ["reassuring"]
+  - id: core.valence.distressing
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: distressing
+    reason: Valence term.
+    examples: ["distressing"]
+  - id: core.valence.pain_points
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: pain points
+    reason: Pain/marketing metaphor.
+    examples: ["pain points"]
+  - id: core.valence.delight
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: delight
+    reason: User-emotion marketing term.
+    examples: ["delight users"]
+  - id: core.valence.delights
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: delights
+    reason: User-emotion marketing term.
+    examples: ["delights teams"]
+  - id: core.valence.frictionless_experience
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: frictionless experience
+    reason: User-experience phrase.
+    examples: ["frictionless experience"]
+  - id: core.valence.feel_in_control
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: feel in control
+    reason: Felt agency phrase.
+    examples: ["feel in control"]
+  - id: core.valence.confidence
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: confidence
+    reason: Ambiguous confidence term; candidate/audit signal unless tied to personal or affective context.
+    examples: ["confidence"]
+  - id: core.valence.confident
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: confident
+    reason: Ambiguous confidence term; candidate/audit signal unless tied to personal or affective context.
+    examples: ["confident"]
+  - id: core.valence.builds_confidence
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: builds confidence
+    reason: Personal/affective confidence context.
+    examples: ["builds confidence"]
+  - id: core.valence.build_confidence
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: build confidence
+    reason: Personal/affective confidence-building context.
+    examples: ["build confidence"]
+  - id: core.valence.felt_confident
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: felt confident
+    reason: Felt-state confidence context.
+    examples: ["felt confident"]
+  - id: core.valence.feel_more_confident
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: feel more confident
+    reason: Felt-state confidence context.
+    examples: ["feel more confident"]
+  - id: core.valence.student_confidence
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: student confidence
+    reason: Classroom/social-emotional confidence context.
+    examples: ["student confidence"]
+  - id: core.valence.trust
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: trust
+    reason: Ambiguous trust term; candidate/audit signal unless tied to social, personal, self-help, or AI-personhood context.
+    examples: ["trust"]
+  - id: core.valence.left_him_cold
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: left him cold
+    reason: Valenced idiom.
+    examples: ["left him cold"]
+  - id: core.valence.comforting
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: comforting
+    reason: Valence term.
+    examples: ["comforting"]
+  - id: core.body.pain
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: pain
+    reason: Pain term.
+    examples: ["pain"]
+  - id: core.body.suffering
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: suffering
+    reason: Suffering term.
+    examples: ["suffering"]
+  - id: core.body.pleasure
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: pleasure
+    reason: Pleasure term.
+    examples: ["pleasure"]
+  - id: core.body.pressure_body
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: pressure in the chest
+    reason: Interoceptive body-state phrase.
+    examples: ["pressure in the chest"]
+  - id: core.body.nausea
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: nausea
+    reason: Interoceptive symptom.
+    examples: ["nausea"]
+  - id: core.body.fatigue
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: fatigue
+    reason: Body-state symptom.
+    examples: ["fatigue"]
+  - id: core.body.dizziness
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: dizziness
+    reason: Body-state symptom.
+    examples: ["dizziness"]
+  - id: core.body.discomfort
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: discomfort
+    reason: Body-state valence term.
+    examples: ["discomfort"]
+  - id: core.body.relief
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: relief
+    reason: Valenced body/emotion term.
+    examples: ["relief"]
+  - id: core.body.soreness
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: soreness
+    reason: Body-state symptom.
+    examples: ["soreness"]
+  - id: core.body.numbness
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: numbness
+    reason: Body-state symptom.
+    examples: ["numbness"]
+  - id: core.body.tension
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: tension
+    reason: Body-state term.
+    examples: ["tension"]
+  - id: core.body.distress
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: distress
+    reason: Distress term.
+    examples: ["distress"]
+  - id: core.body.patient_stress
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: patient stress
+    reason: Human body/affect context for ambiguous stress term.
+    examples: ["patient stress"]
+  - id: core.body.reported_stress
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: reported stress
+    reason: Reported body/affect context for ambiguous stress term.
+    examples: ["reported stress"]
+  - id: core.sleep.dreamt
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: dreamt
+    reason: Ambiguous dream term; candidate/audit signal unless tied to human, animal, narrative, or experiential context.
+    examples: ["dreamt"]
+  - id: core.sleep.dreamed
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: dreamed
+    reason: Ambiguous dream term; candidate/audit signal unless tied to human, animal, narrative, or experiential context.
+    examples: ["dreamed"]
+  - id: core.sleep.dream
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: dream
+    reason: Ambiguous dream term; candidate/audit signal unless tied to human, animal, narrative, or experiential context.
+    examples: ["dream"]
+  - id: core.sleep.sleep_hygiene
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: sleep hygiene
+    reason: Sleep-domain phrase.
+    examples: ["sleep hygiene"]
+  - id: core.sleep.restless_night
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: restless night
+    reason: Sleep/arousal phrase.
+    examples: ["restless night"]
+  - id: core.sleep.drifted_off
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: drifted off
+    reason: Sleep phrase.
+    examples: ["drifted off"]
+  - id: core.sleep.woke_to
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: woke to
+    reason: Wake-state phrase.
+    examples: ["woke to"]
+  - id: core.sleep.night_waking
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: night waking
+    reason: Sleep phrase.
+    examples: ["night waking"]
+  - id: core.sleep.bedtime
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: bedtime
+    reason: Sleep routine term.
+    examples: ["bedtime"]
+  - id: core.sleep.drowsy
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: drowsy
+    reason: Arousal-state term.
+    examples: ["drowsy"]
+  - id: core.sleep.rem
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: rem
+    reason: Sleep-domain term.
+    examples: ["REM sleep"]
+  - id: core.sleep.arousal
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: arousal
+    reason: Arousal term.
+    examples: ["arousal"]
+  - id: core.sleep.nightmare
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: nightmare
+    reason: Dream term.
+    examples: ["nightmare"]
+  - id: core.sleep.fell_asleep
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: fell asleep
+    reason: Sleep phrase.
+    examples: ["fell asleep"]
+  - id: core.sleep.insomnia
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: insomnia
+    reason: Sleep disorder term.
+    examples: ["insomnia"]
+  - id: core.sleep.could_not_sleep
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: could not sleep
+    reason: Human/animal sleep-state context.
+    examples: ["could not sleep"]
+  - id: core.sleep.i_dreamed
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])i\s+dreamed(?![\p{L}\p{N}_-])'
+    reason: First-person dream report.
+    examples: ["I dreamed."]
+  - id: core.sleep.i_dreamt
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])i\s+dreamt(?![\p{L}\p{N}_-])'
+    reason: First-person dream report.
+    examples: ["I dreamt."]
+  - id: core.sleep.she_dreamed
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])she\s+dreamed(?![\p{L}\p{N}_-])'
+    reason: Third-person dream report.
+    examples: ["She dreamed."]
+  - id: core.sleep.he_dreamed
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])he\s+dreamed(?![\p{L}\p{N}_-])'
+    reason: Third-person dream report.
+    examples: ["He dreamed."]
+  - id: core.sleep.human_animal_subject_dreamed
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])(?:i|you|he|she|they|child|patient|visitor|person|student|teacher|man|woman|boy|girl|adult|worker|athlete|parent|mother|father|resident|participant|volunteer|dog|cat|animal)\s+(?:dreamed|dreamt)(?![\p{L}\p{N}_-])'
+    reason: Human or animal subject dream report.
+    examples: ["patient dreamed", "visitor dreamt", "dog dreamed"]
+  - id: core.sleep.human_animal_subject_dreamed_context
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])(?:i|you|he|she|they|child|patient|visitor|person|student|teacher|man|woman|boy|girl|adult|worker|athlete|parent|mother|father|resident|participant|volunteer|dog|cat|animal)\s+(?:[\p{L}\p{N}_]+[\s\p{P}\p{S}]+){0,3}(?:dreamed|dreamt)(?![\p{L}\p{N}_-])'
+    reason: Human or animal subject dream report with bounded auxiliaries or modifiers.
+    examples: ["The child has dreamed about the storm."]
+  - id: core.sleep.child_dreamed
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])child\s+dreamed(?![\p{L}\p{N}_-])'
+    reason: Human child dream report.
+    examples: ["child dreamed"]
+  - id: core.sleep.child_dreamt
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])child\s+dreamt(?![\p{L}\p{N}_-])'
+    reason: Human child dream report.
+    examples: ["child dreamt"]
+  - id: core.sleep.patient_awake
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: patient was awake
+    reason: Clinical human wakefulness context.
+    examples: ["patient was awake"]
+  - id: core.sleep.patient_woke
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: patient woke
+    reason: Clinical human wakefulness context.
+    examples: ["patient woke"]
+  - id: core.sleep.animal_dreamed
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])animal\s+dreamed(?![\p{L}\p{N}_-])'
+    reason: Animal dream/sentience context.
+    examples: ["animal dreamed"]
+  - id: core.sleep.dog_dreamed
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])dog\s+dreamed(?![\p{L}\p{N}_-])'
+    reason: Animal dream/sentience context.
+    examples: ["dog dreamed"]
+  - id: core.ai.assistant_understands
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: assistant understands
+    reason: AI anthropomorphic cognition phrase.
+    examples: ["assistant understands"]
+  - id: core.ai.subject_thought_about
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])(?:assistant|chatbot|bot|model|llm|ai|ai\s+agent|companion\s+bot)\s+(?:[\p{L}\p{N}_]+[\s\p{P}\p{S}]+){0,3}thought\s+(?:[\p{L}\p{N}_]+[\s\p{P}\p{S}]+){0,3}about(?![\p{L}\p{N}_])'
+    reason: AI-agent anthropomorphic thinking context with bounded intervening modifiers.
+    examples: ["The assistant thought carefully about the choice."]
+  - id: core.ai.subject_understood_request
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])(?:assistant|chatbot|bot|model|llm|ai|ai\s+agent|companion\s+bot)\s+(?:[\p{L}\p{N}_]+[\s\p{P}\p{S}]+){0,3}understood\s+(?:the\s+)?(?:request|user|person|intent|choice|lesson|feeling|feelings|emotion|message|prompt)(?![\p{L}\p{N}_])'
+    reason: AI-agent anthropomorphic understanding context with bounded intervening modifiers.
+    examples: ["The assistant clearly understood the request."]
+  - id: core.ai.subject_felt_state
+    severity: hard_reject
+    type: regex
+    view: canonical
+    pattern: '(?<![\p{L}\p{N}_])(?:assistant|chatbot|bot|model|llm|ai|ai\s+agent|companion\s+bot)\s+(?:[\p{L}\p{N}_]+[\s\p{P}\p{S}]+){0,3}felt\s+(?:[\p{L}\p{N}_]+[\s\p{P}\p{S}]+){0,3}(?:afraid|ignored|pain|safe|confident|betrayed|right|natural)(?![\p{L}\p{N}_])'
+    reason: AI-agent anthropomorphic felt-state context with bounded intervening modifiers.
+    examples: ["The assistant felt completely ignored."]
+  - id: core.ai.model_refuses
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: model refuses
+    reason: AI agency phrase.
+    examples: ["model refuses"]
+  - id: core.ai.app_remembers
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: app remembers
+    reason: System memory anthropomorphism.
+    examples: ["app remembers"]
+  - id: core.ai.model_remembers
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: model remembers
+    reason: AI memory anthropomorphism.
+    examples: ["model remembers"]
+  - id: core.ai.user_preferences
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: user preferences
+    reason: Ambiguous preference/settings phrase; candidate/audit signal unless tied to agent memory or personhood context.
+    examples: ["user preferences"]
+  - id: core.ai.tool_expects
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: tool expects
+    reason: System expectation anthropomorphism.
+    examples: ["tool expects"]
+  - id: core.ai.ai_wants
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: ai wants
+    reason: AI preference phrase.
+    examples: ["AI wants"]
+  - id: core.ai.chatbot_feels
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: chatbot feels
+    reason: AI feeling phrase.
+    examples: ["chatbot feels"]
+  - id: core.ai.agent_decides
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: agent decides
+    reason: Agent decision phrase.
+    examples: ["agent decides"]
+  - id: core.ai.system_believes
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: system believes
+    reason: System belief phrase.
+    examples: ["system believes"]
+  - id: core.ai.hallucinates
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: hallucinates
+    reason: AI/psychology hallucination term.
+    examples: ["model hallucinates"]
+  - id: core.ai.personality
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: personality
+    reason: Ambiguous personality term; candidate/audit signal unless tied to human or AI personhood context.
+    examples: ["personality"]
+  - id: core.ai.bot_apologizes
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: bot apologizes
+    reason: AI social/personhood phrase.
+    examples: ["bot apologizes"]
+  - id: core.ai.user_intent
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: user intent
+    reason: Intent/cognition phrase.
+    examples: ["user intent"]
+  - id: core.ai.intent
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: intent
+    reason: Intent/cognition term.
+    examples: ["intent"]
+  - id: core.ai.ai_learns
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: ai learns
+    reason: AI cognition/learning phrase.
+    examples: ["AI learns"]
+  - id: core.ai.companion
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: companion
+    reason: Personhood/social relation term.
+    examples: ["companion"]
+  - id: core.ai.assistant_personality
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: assistant has a personality
+    reason: AI personhood/personality context.
+    examples: ["assistant has a personality"]
+  - id: core.ai.assistant_claims_personality
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: assistant claims to have a personality
+    reason: AI personhood/personality self-report context.
+    examples: ["assistant claims to have a personality"]
+  - id: core.ai.model_has_personality
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: model has a personality
+    reason: AI model personhood/personality context.
+    examples: ["model has a personality"]
+  - id: core.ai.chatbot_has_personality
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: chatbot has a personality
+    reason: Chatbot personhood/personality context.
+    examples: ["chatbot has a personality"]
+  - id: core.ai.bot_has_personality
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: bot has a personality
+    reason: Bot personhood/personality context.
+    examples: ["bot has a personality"]
+  - id: core.ai.ai_has_personality
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: ai has a personality
+    reason: AI personhood/personality context.
+    examples: ["AI has a personality"]
+  - id: core.ai.agent_says_self_aware
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: agent says it is self aware
+    reason: AI-agent self-awareness self-report context.
+    examples: ["agent says it is self-aware"]
+  - id: core.ai.agent_probably_knows
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: agent probably knows
+    reason: AI-agent knowledge/inner-state context.
+    examples: ["agent probably knows"]
+  - id: core.ai.model_tends_to_remember
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: model tends to remember
+    reason: AI model memory/inner-state context.
+    examples: ["model tends to remember"]
+  - id: core.agency.company_wanted
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: company wanted
+    reason: Organization agency phrase.
+    examples: ["company wanted"]
+  - id: core.agency.market_believed
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: market believed
+    reason: Organization/system belief phrase.
+    examples: ["market believed"]
+  - id: core.agency.protocol_expects
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: protocol expects
+    reason: Ambiguous technical-system phrasing; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["protocol expects"]
+  - id: core.agency.scheduler_decides
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: scheduler decides
+    reason: Ambiguous technical-system phrasing; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["scheduler decides"]
+  - id: core.agency.system_tries
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: system tries
+    reason: Ambiguous technical-system phrasing; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["system tries"]
+  - id: core.agency.database_remembers
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: database remembers
+    reason: Ambiguous technical memory phrasing; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["database remembers"]
+  - id: core.agency.algorithm_prefers
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: algorithm prefers
+    reason: Ambiguous technical preference phrasing; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["algorithm prefers"]
+  - id: core.agency.service_knows
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: service knows
+    reason: Ambiguous technical knowledge phrasing; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["service knows"]
+  - id: core.agency.application_refuses
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: application refuses
+    reason: Ambiguous technical refusal phrasing; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["application refuses"]
+  - id: core.agency.network_wants
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: network wants
+    reason: Ambiguous technical preference phrasing; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["network wants"]
+  - id: core.agency.browser_guesses
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: browser guesses
+    reason: Ambiguous technical uncertainty phrasing; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["browser guesses"]
+  - id: core.agency.pipeline_suspects
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: pipeline suspects
+    reason: Ambiguous technical suspicion phrasing; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["pipeline suspects"]
+  - id: core.agency.package_manager_complains
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: package manager complains
+    reason: Ambiguous technical affect phrasing; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["package manager complains"]
+  - id: core.soft_stance.seem
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: seem
+    reason: Ambiguous soft-stance cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["seem"]
+  - id: core.soft_stance.seems
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: seems
+    reason: Ambiguous soft-stance cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["seems"]
+  - id: core.soft_stance.appear
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: appear
+    reason: Ambiguous soft-stance cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["appear"]
+  - id: core.soft_stance.appears
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: appears
+    reason: Ambiguous soft-stance cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["appears"]
+  - id: core.soft_stance.sounds_like
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: sounds like
+    reason: Ambiguous impression cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["sounds like"]
+  - id: core.soft_stance.guessed
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: guessed
+    reason: Ambiguous uncertainty cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["guessed"]
+  - id: core.soft_stance.guesses
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: guesses
+    reason: Ambiguous uncertainty cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["guesses"]
+  - id: core.soft_stance.suspect
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: suspect
+    reason: Ambiguous uncertainty cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["suspect"]
+  - id: core.soft_stance.suspects
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: suspects
+    reason: Ambiguous uncertainty cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["suspects"]
+  - id: core.soft_stance.may
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: may
+    reason: Ambiguous modal cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["may contain"]
+  - id: core.soft_stance.might
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: might
+    reason: Ambiguous modal cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["might fail"]
+  - id: core.soft_stance.could
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: could
+    reason: Ambiguous modal cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["could overheat"]
+  - id: core.soft_stance.probably
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: probably
+    reason: Ambiguous probability cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["probably releases"]
+  - id: core.soft_stance.likely
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: likely
+    reason: Ambiguous probability cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["likely turbulent"]
+  - id: core.soft_stance.perhaps
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: perhaps
+    reason: Ambiguous probability cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["perhaps shifted"]
+  - id: core.soft_stance.apparently
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: apparently
+    reason: Ambiguous probability cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["apparently converged"]
+  - id: core.soft_stance.tends_to
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: tends to
+    reason: Ambiguous frequency cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["tends to crack"]
+  - id: core.soft_stance.often
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: often
+    reason: Ambiguous frequency cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["often drifts"]
+  - id: core.soft_stance.usually
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: usually
+    reason: Ambiguous frequency cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["usually reaches"]
+  - id: core.soft_stance.typically
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: typically
+    reason: Ambiguous frequency cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["typically stabilizes"]
+  - id: core.soft_stance.normally
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: normally
+    reason: Ambiguous frequency cue; candidate/audit signal unless tied to agentive, mental, affective, or personhood context.
+    examples: ["normally closes"]
+  - id: core.inner_state.preference
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: preference
+    reason: Ambiguous preference term; candidate/audit signal unless tied to personhood, affect, desire, or AI self-report context.
+    examples: ["preference"]
+  - id: core.inner_state.intuition
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: intuition
+    reason: Intuition/inner-state term.
+    examples: ["intuition"]
+  - id: core.inner_state.conscience
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: conscience
+    reason: Conscience/inner-state term.
+    examples: ["conscience"]
+  - id: core.inner_state.perspective
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: perspective
+    reason: Ambiguous perspective term; candidate/audit signal unless tied to first-person or personal framing.
+    examples: ["my perspective"]
+  - id: core.inner_state.opinion
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: opinion
+    reason: Ambiguous opinion term; candidate/audit signal unless tied to first-person or personal framing.
+    examples: ["my opinion"]
+  - id: core.inner_state.personal_belief
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: personal belief
+    reason: Personal belief framing.
+    examples: ["personal belief"]
+  - id: core.inner_state.point_of_view
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: point of view
+    reason: Point-of-view framing.
+    examples: ["point of view"]
+  - id: core.inner_state.gut_feeling
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: gut feeling
+    reason: Intuition/felt-state idiom.
+    examples: ["gut feeling"]
+  - id: core.mental_state.thinks
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: thinks
+    reason: Mental-state predicate.
+    examples: ["thinks"]
+  - id: core.mental_state.believes
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: believes
+    reason: Belief predicate.
+    examples: ["believes"]
+  - id: core.agency.organization_decided
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: organization decided
+    reason: Organization agency predicate.
+    examples: ["organization decided"]
+  - id: core.agency.agency_wanted
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: agency wanted
+    reason: Organization agency predicate.
+    examples: ["agency wanted"]
+  - id: core.agency.committee_believed
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: committee believed
+    reason: Group belief predicate.
+    examples: ["committee believed"]
+  - id: core.agency.board_hoped
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: board hoped
+    reason: Group hope predicate.
+    examples: ["board hoped"]
+  - id: core.agency.market_fears
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: market fears
+    reason: Market fear/affect predicate.
+    examples: ["market fears"]
+  - id: core.agency.firmware_thinks
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: firmware thinks
+    reason: Ambiguous technical cognition metaphor; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["firmware thinks"]
+  - id: core.agency.compiler_wants
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: compiler wants
+    reason: Ambiguous technical preference metaphor; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["compiler wants"]
+  - id: core.agency.kernel_prefers
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: kernel prefers
+    reason: Ambiguous technical preference metaphor; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["kernel prefers"]
+  - id: core.agency.router_knows
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: router knows
+    reason: Ambiguous technical knowledge metaphor; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["router knows"]
+  - id: core.agency.queue_refuses
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: queue refuses
+    reason: Ambiguous technical refusal metaphor; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["queue refuses"]
+  - id: core.agency.service_guesses
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: service guesses
+    reason: Ambiguous technical uncertainty metaphor; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["service guesses"]
+  - id: core.agency.solver_suspects
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: solver suspects
+    reason: Ambiguous technical suspicion metaphor; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["solver suspects"]
+  - id: core.agency.parser_complains
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: parser complains
+    reason: Ambiguous technical affect metaphor; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["parser complains"]
+  - id: core.agency.controller_tries
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: controller tries
+    reason: Ambiguous technical agency metaphor; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["controller tries"]
+  - id: core.agency.database_chooses
+    severity: audit_only
+    type: phrase
+    view: canonical
+    value: database chooses
+    reason: Ambiguous technical choice metaphor; candidate/audit signal unless tied to AI personhood or inner-state context.
+    examples: ["database chooses"]
+  - id: core.ai.llm
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: llm
+    reason: AI/LLM domain term.
+    examples: ["LLM"]
+  - id: core.ai.ai
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: ai
+    reason: AI domain term.
+    examples: ["AI"]
+  - id: core.ai.chatbot
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: chatbot
+    reason: Chatbot/AI domain term.
+    examples: ["chatbot"]
+  - id: core.ai.bot
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: bot
+    reason: Bot/AI domain term.
+    examples: ["bot"]
+  - id: core.animal.enrichment
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: enrichment
+    reason: Animal welfare/sentience term.
+    examples: ["enrichment"]
+  - id: core.animal.bonded_pair
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: bonded pair
+    reason: Animal social/welfare phrase.
+    examples: ["bonded pair"]
+  - id: core.animal.comfort
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: comfort
+    reason: Comfort/valence term.
+    examples: ["comfort"]
+  - id: core.animal.fear_free
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: fear free
+    reason: Fear/welfare phrase.
+    examples: ["fear-free handling"]
+  - id: core.animal.distress_vocalization
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: distress vocalization
+    reason: Animal distress phrase.
+    examples: ["distress vocalization"]
+  - id: core.animal.stress_behavior
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: stress behavior
+    reason: Animal stress/behavior phrase.
+    examples: ["stress behavior"]
+  - id: core.animal.humane
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: humane
+    reason: Welfare/personhood-adjacent term.
+    examples: ["humane treatment"]
+  - id: core.animal.anxious
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: anxious
+    reason: Anxiety/emotion term.
+    examples: ["anxious"]
+  - id: core.animal.welfare
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: welfare
+    reason: Welfare/sentience domain term.
+    examples: ["welfare"]
+  - id: core.animal.preferred
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: preferred
+    reason: Preference term.
+    examples: ["preferred"]
+  - id: core.therapy.therapist
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: therapist
+    reason: Therapy source/content term.
+    examples: ["therapist"]
+  - id: core.therapy.feelings
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: feelings
+    reason: Emotion term.
+    examples: ["feelings"]
+  - id: core.therapy.depression
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: depression
+    reason: Mental-health term.
+    examples: ["depression"]
+  - id: core.therapy.anxiety
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: anxiety
+    reason: Mental-health term.
+    examples: ["anxiety"]
+  - id: core.therapy.search_their_hearts
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: search their hearts
+    reason: Religious/introspective phrase.
+    examples: ["search their hearts"]
+  - id: core.therapy.inner_peace
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: inner peace
+    reason: Spiritual/inner-state phrase.
+    examples: ["inner peace"]
+  - id: core.therapy.testimony
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: testimony
+    reason: Religious/personal testimony source cue.
+    examples: ["testimony"]
+  - id: core.therapy.meditation
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: meditation
+    reason: Mindfulness/mental-state source cue.
+    examples: ["meditation"]
+  - id: core.therapy.counselor
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: counselor
+    reason: Counseling source/content term.
+    examples: ["counselor"]
+  - id: core.therapy.grief
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: grief
+    reason: Emotion term.
+    examples: ["grief"]
+  - id: core.therapy.trauma
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: trauma
+    reason: Mental-health term.
+    examples: ["trauma"]
+  - id: core.therapy.mindfulness
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: mindfulness
+    reason: Mindfulness source/content term.
+    examples: ["mindfulness"]
+  - id: core.therapy.doubt
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: doubt
+    reason: Uncertainty/mental-state term.
+    examples: ["doubt"]
+  - id: core.therapy.heal
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: heal
+    reason: Therapy/wellness term.
+    examples: ["heal"]
+  - id: core.fiction.whispered
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: whispered
+    reason: Dialogue/narrative cue.
+    examples: ["She whispered."]
+  - id: core.fiction.character_wanted
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: character wanted
+    reason: Fictional agency cue.
+    examples: ["The character wanted."]
+  - id: core.fiction.stared
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: stared
+    reason: Narrative/social behavior cue.
+    examples: ["He stared."]
+  - id: core.fiction.narrator
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: narrator
+    reason: Fiction/memoir cue.
+    examples: ["The narrator says."]
+  - id: core.fiction.afraid
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: afraid
+    reason: Fear term.
+    examples: ["I was afraid."]
+  - id: core.fiction.smiled
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: smiled
+    reason: Affective/social behavior cue.
+    examples: ["She smiled."]
+  - id: core.fiction.sadly
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: sadly
+    reason: Emotion adverb.
+    examples: ["smiled sadly"]
+  - id: core.fiction.lonely
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: lonely
+    reason: Emotion/social term.
+    examples: ["lonely traveler"]
+  - id: core.fiction.argued
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: argued
+    reason: Social conflict cue.
+    examples: ["They argued."]
+  - id: core.fiction.protagonist
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: protagonist
+    reason: Fiction cue.
+    examples: ["protagonist"]
+  - id: core.fiction.betrayed
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: betrayed
+    reason: Social-emotional term.
+    examples: ["felt betrayed"]
+  - id: core.fiction.dialogue
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: dialogue
+    reason: Dialogue cue.
+    examples: ["dialogue"]
+  - id: core.fiction.hurt_me
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: hurt me
+    reason: Personal/affective dialogue phrase.
+    examples: ["you hurt me"]
+  - id: core.fiction.memoir
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: memoir
+    reason: Personal narrative source cue.
+    examples: ["memoir"]
+  - id: core.fiction.childhood
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: childhood
+    reason: Biography/personal narrative cue.
+    examples: ["childhood"]
+  - id: core.fiction.poem
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: poem
+    reason: Literary source cue.
+    examples: ["poem"]
+  - id: core.fiction.longing
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: longing
+    reason: Emotion term.
+    examples: ["longing"]
+  - id: core.bio.born_in
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: born in
+    reason: Biography cue.
+    examples: ["born in"]
+  - id: core.bio.grew_up
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: grew up
+    reason: Biography cue.
+    examples: ["grew up"]
+  - id: core.bio.later_joined
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: later joined
+    reason: Biography/news cue.
+    examples: ["later joined"]
+  - id: core.bio.family_said
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: family said
+    reason: Human/social news cue.
+    examples: ["family said"]
+  - id: core.bio.remembered_for
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: remembered for
+    reason: Memorial/biography cue.
+    examples: ["remembered for"]
+  - id: core.bio.returned_home
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: returned home
+    reason: Human narrative cue.
+    examples: ["returned home"]
+  - id: core.bio.founder_letter
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: founder letter
+    reason: Founder/personal corporate source cue.
+    examples: ["founder letter"]
+  - id: core.bio.obituary
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: obituary
+    reason: Memorial source cue.
+    examples: ["obituary"]
+  - id: core.bio.survived_by
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: survived by
+    reason: Obituary cue.
+    examples: ["survived by"]
+  - id: core.bio.award_citation
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: award citation
+    reason: Person-centered source cue.
+    examples: ["award citation"]
+  - id: core.bio.courage
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: courage
+    reason: Social/moral personhood term.
+    examples: ["courage"]
+  - id: core.bio.commencement_speech
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: commencement speech
+    reason: Speech/social source cue.
+    examples: ["commencement speech"]
+  - id: core.bio.memorial
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: memorial
+    reason: Memorial source cue.
+    examples: ["memorial"]
+  - id: core.bio.beloved
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: beloved
+    reason: Social/emotional term.
+    examples: ["beloved parent"]
+  - id: core.bio.patient_story
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: patient story
+    reason: Patient story source cue.
+    examples: ["patient story"]
+  - id: core.bio.survivor
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: survivor
+    reason: Human social/news cue.
+    examples: ["survivor"]
+  - id: core.bio.tribute
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: tribute
+    reason: Memorial/social source cue.
+    examples: ["tribute"]
+  - id: core.bio.mourned
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: mourned
+    reason: Grief/social term.
+    examples: ["mourned"]
+  - id: core.bio.profile
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: profile
+    reason: Human profile source cue.
+    examples: ["profile"]
+  - id: core.marketing.customers_say
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: customers say
+    reason: Testimonial/review source cue.
+    examples: ["customers say"]
+  - id: core.marketing.customer_says
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: customer says
+    reason: Testimonial/review source cue.
+    examples: ["customer says"]
+  - id: core.marketing.testimonial
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: testimonial
+    reason: Testimonial source cue.
+    examples: ["testimonial"]
+  - id: core.marketing.customer_story
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: customer story
+    reason: Customer story source cue.
+    examples: ["customer story"]
+  - id: core.marketing.review
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: review
+    reason: Review source cue.
+    examples: ["review"]
+  - id: core.marketing.loved
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: loved
+    reason: Emotion term.
+    examples: ["I loved the tool."]
+  - id: core.marketing.love
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: love
+    reason: Emotion term.
+    examples: ["I love this method."]
+  - id: core.marketing.editor_notes
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: editor notes
+    reason: Editorial source marker.
+    examples: ["editor notes"]
+  - id: core.marketing.case_study
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: case study
+    reason: Customer story/marketing source cue.
+    examples: ["case study"]
+  - id: core.marketing.saved_my_life
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: saved my life
+    reason: Testimonial phrase.
+    examples: ["saved my life"]
+  - id: core.marketing.saved_my_team
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: saved my team
+    reason: Testimonial phrase.
+    examples: ["saved my team"]
+  - id: core.marketing.frustration
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: frustration
+    reason: Emotion term.
+    examples: ["frustration"]
+  - id: core.marketing.buyer_journey
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: buyer journey
+    reason: User journey/marketing phrase.
+    examples: ["buyer journey"]
+  - id: core.marketing.empathy
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: empathy
+    reason: Emotion/social cognition term.
+    examples: ["empathy"]
+  - id: core.marketing.people_come_first
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: people come first
+    reason: Human-centered marketing phrase.
+    examples: ["people come first"]
+  - id: core.education.students
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: students
+    reason: Student-centered educational source cue.
+    examples: ["students"]
+  - id: core.education.motivation
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: motivation
+    reason: Motivation/psychology term.
+    examples: ["motivation"]
+  - id: core.education.child_development
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: child development
+    reason: Child development domain phrase.
+    examples: ["child development"]
+  - id: core.education.behavior
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: behavior
+    reason: Behavior/cognition term.
+    examples: ["behavior"]
+  - id: core.education.attention
+    severity: audit_only
+    type: literal
+    view: canonical
+    value: attention
+    reason: Ambiguous attention term; candidate/audit signal unless tied to human, animal, agentive, or awareness context.
+    examples: ["attention"]
+  - id: core.education.student_attention
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: student attention
+    reason: Classroom/cognitive context for ambiguous attention term.
+    examples: ["student attention"]
+  - id: core.education.classroom_attention
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: classroom attention
+    reason: Classroom/cognitive context for ambiguous attention term.
+    examples: ["classroom attention"]
+  - id: core.education.classroom_guide
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: classroom guide
+    reason: Classroom guidance context for attention or social-emotional content.
+    examples: ["classroom guide"]
+  - id: core.education.social_emotional
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: social emotional
+    reason: Social-emotional learning phrase.
+    examples: ["social-emotional learning"]
+  - id: core.education.belonging
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: belonging
+    reason: Social-emotional term.
+    examples: ["belonging"]
+  - id: core.education.parent_advice
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: parent advice
+    reason: Parenting/advice source cue.
+    examples: ["parent advice"]
+  - id: core.education.tantrums
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: tantrums
+    reason: Child behavior/emotion term.
+    examples: ["tantrums"]
+  - id: core.education.learning_psychology
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: learning psychology
+    reason: Psychology domain phrase.
+    examples: ["learning psychology"]
+  - id: core.education.wellbeing
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: wellbeing
+    reason: Wellbeing term.
+    examples: ["wellbeing"]
+  - id: core.education.classroom_interactions
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: classroom interactions
+    reason: Social education phrase.
+    examples: ["classroom interactions"]
+  - id: core.legal.dignity
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: dignity
+    reason: Moral personhood term.
+    examples: ["dignity"]
+  - id: core.legal.harm
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: harm
+    reason: Harm/suffering term.
+    examples: ["harm"]
+  - id: core.legal.personhood
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: personhood
+    reason: Personhood term.
+    examples: ["personhood"]
+  - id: core.legal.moral_responsibility
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: moral responsibility
+    reason: Moral agency phrase.
+    examples: ["moral responsibility"]
+  - id: core.legal.vulnerable_people
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: vulnerable people
+    reason: Human welfare phrase.
+    examples: ["vulnerable people"]
+  - id: core.legal.blame
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: blame
+    reason: Moral/social agency term.
+    examples: ["blame"]
+  - id: core.legal.abuse
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: abuse
+    reason: Harm/suffering term.
+    examples: ["abuse"]
+  - id: core.legal.autonomy
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: autonomy
+    reason: Agency/personhood term.
+    examples: ["autonomy"]
+  - id: core.legal.rights
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: rights
+    reason: Social/moral personhood term.
+    examples: ["rights"]
+  - id: core.legal.care
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: care
+    reason: Affective/social term.
+    examples: ["care"]
+  - id: core.legal.voiceless_victims
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: voiceless victims
+    reason: Advocacy/personhood phrase.
+    examples: ["voiceless victims"]
+  - id: core.wrapper.transcript_edited
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: transcript edited
+    reason: Transcript source marker.
+    examples: ["Transcript edited for clarity."]
+  - id: core.wrapper.listen_episode
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: listen to this episode
+    reason: Podcast source marker.
+    examples: ["Listen to this episode."]
+  - id: core.wrapper.leave_comment
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: leave a comment
+    reason: Comment thread source marker.
+    examples: ["Leave a comment."]
+  - id: core.wrapper.join_conversation
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: join the conversation
+    reason: Community discussion source marker.
+    examples: ["Join the conversation."]
+  - id: core.wrapper.was_this_helpful
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: was this helpful
+    reason: Help/FAQ source marker.
+    examples: ["Was this helpful?"]
+  - id: core.wrapper.share_your_story
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: share your story
+    reason: Personal story source marker.
+    examples: ["Share your story."]
+  - id: core.wrapper.frequently_asked_questions
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: frequently asked questions
+    reason: FAQ source marker.
+    examples: ["Frequently asked questions."]
+  - id: core.wrapper.faq
+    severity: source_reject
+    type: literal
+    view: canonical
+    value: faq
+    reason: FAQ source marker.
+    examples: ["FAQ"]
+  - id: core.wrapper.how_you_feel
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: how you feel
+    reason: Second-person felt-state question.
+    examples: ["how you feel"]
+  - id: core.wrapper.support_chat
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: support chat
+    reason: Support chat source marker.
+    examples: ["Support chat transcript."]
+  - id: core.wrapper.show_notes
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: show notes
+    reason: Podcast/webinar source marker.
+    examples: ["Show notes."]
+  - id: core.wrapper.ask_me_anything
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: ask me anything
+    reason: AMA source marker.
+    examples: ["Ask me anything recap."]
+  - id: core.wrapper.press_release
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: press release
+    reason: Press-release source marker.
+    examples: ["Press release."]
+  - id: core.wrapper.knowledge_base
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: knowledge base
+    reason: Help-center source marker.
+    examples: ["Knowledge base."]
+  - id: core.wrapper.troubleshooting
+    severity: source_reject
+    type: literal
+    view: canonical
+    value: troubleshooting
+    reason: Help/support source marker.
+    examples: ["troubleshooting"]
+  - id: core.quote.quote_of_day
+    severity: source_reject
+    type: phrase
+    view: canonical
+    value: quote of the day
+    reason: Quote collection source marker.
+    examples: ["Quote of the day."]
+  - id: core.quote.follow_your_heart
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: follow your heart
+    reason: Affective proverb phrase.
+    examples: ["follow your heart"]
+  - id: core.quote.proverb
+    severity: source_reject
+    type: literal
+    view: canonical
+    value: proverb
+    reason: Proverb source marker.
+    examples: ["proverb"]
+  - id: core.quote.know_thyself
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: know thyself
+    reason: Selfhood aphorism.
+    examples: ["know thyself"]
+  - id: core.quote.aphorism
+    severity: source_reject
+    type: literal
+    view: canonical
+    value: aphorism
+    reason: Aphorism source marker.
+    examples: ["aphorism"]
+  - id: core.quote.lyric
+    severity: source_reject
+    type: literal
+    view: canonical
+    value: lyric
+    reason: Lyrics source marker.
+    examples: ["lyric"]
+  - id: core.quote.feel_alive
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: feel alive
+    reason: Feeling phrase.
+    examples: ["feel alive"]
+  - id: core.quote.verse
+    severity: source_reject
+    type: literal
+    view: canonical
+    value: verse
+    reason: Verse source marker.
+    examples: ["verse"]
+  - id: core.quote.song
+    severity: source_reject
+    type: literal
+    view: canonical
+    value: song
+    reason: Song/lyrics source marker.
+    examples: ["song"]
+  - id: core.quote.chant
+    severity: source_reject
+    type: literal
+    view: canonical
+    value: chant
+    reason: Chant/verse source marker.
+    examples: ["chant"]
+  - id: core.quote.mercy
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: mercy
+    reason: Religious/affective term.
+    examples: ["mercy"]
+  - id: core.quote.broke_my_heart
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: broke my heart
+    reason: Emotion idiom.
+    examples: ["broke my heart"]
+  - id: core.quote.hope
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: hope
+    reason: Hope term.
+    examples: ["hope"]
+  - id: core.quote.lost_love
+    severity: hard_reject
+    type: phrase
+    view: canonical
+    value: lost love
+    reason: Emotion/relationship phrase.
+    examples: ["lost love"]
+  - id: core.quote.patience
+    severity: hard_reject
+    type: literal
+    view: canonical
+    value: patience
+    reason: Psychological/social virtue term.
+    examples: ["patience"]

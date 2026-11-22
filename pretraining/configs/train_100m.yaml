@@ -1,0 +1,55 @@
+version: 3
+run_class: 100m_base
+target_loss_tokens: 2610181035
+context_length: 4096
+finite_non_repeating_view_required: true
+seed: 20260608
+precision: bf16
+attention:
+  backend: native_varlen
+  num_splits: auto
+loss:
+  backend: chunked_projection
+compile_mode: disabled
+allow_tf32: true
+optimizer:
+  name: adamw
+  backend: fused
+  learning_rate: 0.0006
+  betas: [0.9, 0.95]
+  epsilon: 0.00000001
+  weight_decay: 0.1
+  grad_clip_norm: 1.0
+schedule_loss_tokens:
+  warmup: 52203620
+  stable: 2296959312
+  decay: 261018103
+semantic_batch:
+  token_cap: 262144
+  attention_cell_cap: 1073741824
+  sequence_cap: 4096
+attempt:
+  prefetch_batches: 1
+  pin_memory: true
+  telemetry_every_steps: 1
+checkpointing:
+  local_every_loss_tokens: 50000000
+  local_max_interval_seconds: 1200
+  durable_every_loss_tokens: 100000000
+  durable_max_interval_seconds: 1800
+  verified_resume_required: true
+evaluation:
+  every_loss_tokens: 250000000
+  full_validation_at_schedule_boundaries: true
+guards:
+  launch_price_snapshot_required: true
+  cost_cap_required: true
+  derived_storage_required: true
+  heartbeat_required: true
+  backend_receipt_required: true
+telemetry:
+  jsonl_required: true
+  background_gpu_sampling_required: true
+  input_wait_required: true
+  recent_tokens_per_second_required: true
+  checkpoint_phase_required: true
