@@ -1,10 +1,21 @@
-# Emergence of consciousness traits
+# Emergence of Consciousness Traits in a Small Language Model
 
-Code for the paper *Emergence of Consciousness Traits in a SLM*.
+### 📄 [Read the paper (PDF)](PAPER.pdf)
 
-We asked whether four traits that theories of consciousness care about (access, self-modelling, metacognition and integration) can grow in a language model that was never shown them, only because they help it predict. We pre-trained a small model (about 100 million parameters) from scratch on educational web text from which a filter had removed any text that could teach the model to imitate consciousness or its traits: awareness, selves, beliefs, emotions, psychology, and forms such as fiction, dialogue and news.
+Can an AI develop traits linked to consciousness without ever being shown them?
 
-We then trained it in a small simulated savanna, written as a plain-English logbook, in three stages: forecasting what happens next while a scripted animal acts, choosing the animal's actions itself, and being rewarded only for forecasting well. Five runs (seeds 0 to 4, the paper's runs 1 to 5) went through all three stages. Tests edit one line of a held-out day and check whether the model's forecasts change the way an ideal forecaster's do. The study makes no claim about experience or feelings.
+We trained a small language model (100 million parameters) from scratch on web text with anything that could teach it to imitate consciousness removed: no fiction, no dialogue, no writing about selves or feelings. Then it learned to forecast and act in a simple simulated savanna, rewarded only for forecasting well. Nothing in its training described or rewarded any trait.
+
+Across five separate runs, narrow forms of four traits appeared every time:
+
+- **Access:** using a fact it saw earlier. It passed 75% of these tests; a forecaster that ignores the earlier fact passes 9%.
+- **Self-modelling:** forecasting what its own actions will change.
+- **Metacognition:** being less sure when things may have changed unseen, and choosing when to check. It learned to check more when checking helps, but also somewhat more when it does not.
+- **Integration:** combining separate facts. This was the weakest of the four.
+
+We test abilities only and claim nothing about experience or feelings. The paper's main contribution is an account of what a world must contain before each trait helps prediction, and how each trait then develops.
+
+Everything is public, so you can check or rerun every result: this code, the filtered training text, the pre-trained model and the models from all five runs.
 
 ## What is here
 
